@@ -1,0 +1,24 @@
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\SharedLibrary\bin\Debug\net5.0\SharedLibrary.deps.json
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\SharedLibrary\bin\Debug\net5.0\SharedLibrary.dll
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\SharedLibrary\bin\Debug\net5.0\SharedLibrary.pdb
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.csproj.AssemblyReference.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.AssemblyInfoInputs.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.AssemblyInfo.cs
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.csproj.CoreCompileInputs.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.dll
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\refint\SharedLibrary.dll
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.pdb
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\ref\SharedLibrary.dll
+D:\Document\Seminar\Seminar_Retail_NhanHang\SharedLibrary\bin\Debug\net5.0\SharedLibrary.deps.json
+D:\Document\Seminar\Seminar_Retail_NhanHang\SharedLibrary\bin\Debug\net5.0\SharedLibrary.dll
+D:\Document\Seminar\Seminar_Retail_NhanHang\SharedLibrary\bin\Debug\net5.0\SharedLibrary.pdb
+D:\Document\Seminar\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.csproj.AssemblyReference.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\Document\Seminar\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.AssemblyInfoInputs.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.AssemblyInfo.cs
+D:\Document\Seminar\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.csproj.CoreCompileInputs.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.dll
+D:\Document\Seminar\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\refint\SharedLibrary.dll
+D:\Document\Seminar\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\SharedLibrary.pdb
+D:\Document\Seminar\Seminar_Retail_NhanHang\SharedLibrary\obj\Debug\net5.0\ref\SharedLibrary.dll

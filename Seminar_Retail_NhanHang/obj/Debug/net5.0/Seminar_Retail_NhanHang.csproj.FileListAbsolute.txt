@@ -1,0 +1,78 @@
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\appsettings.Development.json
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\appsettings.json
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.exe
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.deps.json
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.runtimeconfig.json
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.runtimeconfig.dev.json
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.dll
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.pdb
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.Views.dll
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.Views.pdb
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.csproj.AssemblyReference.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.GeneratedMSBuildEditorConfig.editorconfig
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.AssemblyInfoInputs.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.AssemblyInfo.cs
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.csproj.CoreCompileInputs.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.MvcApplicationPartsAssemblyInfo.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.RazorAssemblyInfo.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.RazorAssemblyInfo.cs
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\scopedcss\bundle\Seminar_Retail_NhanHang.styles.css
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\staticwebassets\Seminar_Retail_NhanHang.StaticWebAssets.Manifest.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.TagHelpers.input.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.TagHelpers.output.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.RazorCoreGenerate.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.RazorTargetAssemblyInfo.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.RazorTargetAssemblyInfo.cs
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.Views.pdb
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.dll
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\refint\Seminar_Retail_NhanHang.dll
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.pdb
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.genruntimeconfig.cache
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\ref\Seminar_Retail_NhanHang.dll
+D:\CodeC#\.NET CORE MVC\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.csproj.CopyComplete
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\appsettings.Development.json
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\appsettings.json
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.exe
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.deps.json
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.runtimeconfig.json
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.runtimeconfig.dev.json
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.dll
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.pdb
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.Views.dll
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.Views.pdb
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.csproj.AssemblyReference.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.GeneratedMSBuildEditorConfig.editorconfig
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.AssemblyInfoInputs.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.AssemblyInfo.cs
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.csproj.CoreCompileInputs.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.MvcApplicationPartsAssemblyInfo.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.RazorAssemblyInfo.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.RazorAssemblyInfo.cs
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\scopedcss\bundle\Seminar_Retail_NhanHang.styles.css
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\staticwebassets\Seminar_Retail_NhanHang.StaticWebAssets.Manifest.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.TagHelpers.input.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.TagHelpers.output.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.RazorCoreGenerate.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.RazorTargetAssemblyInfo.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.RazorTargetAssemblyInfo.cs
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.Views.pdb
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.dll
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\refint\Seminar_Retail_NhanHang.dll
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.pdb
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.genruntimeconfig.cache
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\ref\Seminar_Retail_NhanHang.dll
+D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.csproj.CopyComplete
