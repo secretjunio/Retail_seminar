@@ -16,6 +16,7 @@ namespace API
 {
     public class Startup
     {
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,6 +27,15 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        policy.WithOrigins("http://192.168.2.8",
+                                            "http://192.168.2.8:64559");
+                    });
+            });
             services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("Db_name")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -43,7 +53,7 @@ namespace API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
-
+            app.UseCors();
             app.UseRouting();
 
             app.UseAuthorization();

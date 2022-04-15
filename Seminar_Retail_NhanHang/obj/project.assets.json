@@ -5926,11 +5926,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
+      "projectUniqueName": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
       "projectName": "Seminar_Retail_NhanHang",
-      "projectPath": "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
+      "projectPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang\\obj\\",
+      "outputPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\Seminar_Retail_NhanHang\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5947,11 +5947,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\API\\API.csproj": {
-              "projectPath": "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\API\\API.csproj"
+            "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\API\\API.csproj": {
+              "projectPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\API\\API.csproj"
             },
-            "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\SharedLibrary\\SharedLibrary.csproj": {
-              "projectPath": "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\SharedLibrary\\SharedLibrary.csproj"
+            "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\SharedLibrary\\SharedLibrary.csproj": {
+              "projectPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\SharedLibrary\\SharedLibrary.csproj"
             }
           }
         }

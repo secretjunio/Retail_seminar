@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9OWLUmfYSTz9tfF7VxFw2fF6V5RWOjJXi4CDjhvJOGb5RT9fx304UPU9tFEOrdYrl1pHr+34IMqPhSh/4L0MCQ==",
+  "dgSpecHash": "8frTC5lyKg1T4fca//IpkksWNA5ZLLnNMPVlhKiEehYGmbBmeb992Uk1ibzaD6zJsMrEXYfbuMCR653v0bAf1g==",
   "success": true,
-  "projectFilePath": "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
+  "projectFilePath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

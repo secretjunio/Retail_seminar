@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\SharedLibrary\\SharedLibrary.csproj": {}
+    "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\SharedLibrary\\SharedLibrary.csproj": {}
   },
   "projects": {
-    "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\SharedLibrary\\SharedLibrary.csproj": {
+    "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\SharedLibrary\\SharedLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\SharedLibrary\\SharedLibrary.csproj",
+        "projectUniqueName": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\SharedLibrary\\SharedLibrary.csproj",
         "projectName": "SharedLibrary",
-        "projectPath": "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\SharedLibrary\\SharedLibrary.csproj",
+        "projectPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\SharedLibrary\\SharedLibrary.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Document\\Seminar\\Seminar_Retail_NhanHang\\SharedLibrary\\obj\\",
+        "outputPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\SharedLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

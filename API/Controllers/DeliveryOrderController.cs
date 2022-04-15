@@ -35,18 +35,18 @@ namespace API.Controllers
         }
         [HttpPut]
         [Route("UpdateDeliveryOrder")]
-        public void GetProductIntance(string deliveryOrderId, DateTime deliveryOrderDate, bool orderStatus, int expectedQuantity, int actualQuantity)
+        public void GetProductIntance(DeliveryOrder d)
         {
-            if (deliveryOrderId != "")
+            if (d.delivery_order_id != "")
             {
                 DeliveryOrder toUpdate = _context.DeliveryOrders
-                  .Where(p => p.delivery_order_id == deliveryOrderId).FirstOrDefault();
+                  .Where(p => p.delivery_order_id == d.delivery_order_id).FirstOrDefault();
                 DeliveryOrder tmp = new DeliveryOrder();
                 tmp.delivery_order_id = toUpdate.delivery_order_id;//primary key can not change
-                tmp.delivery_order_date = deliveryOrderDate;
-                tmp.actual_quantity = actualQuantity;
-                tmp.expected_quantity = expectedQuantity;
-                tmp.order_status = orderStatus;
+                tmp.delivery_order_date = d.delivery_order_date;
+                tmp.actual_quantity = d.actual_quantity;
+                tmp.expected_quantity = d.expected_quantity;
+                tmp.order_status = d.order_status;
                 if (toUpdate != null)
                 {
                     _context.Entry(toUpdate).CurrentValues.SetValues(tmp);
@@ -56,17 +56,17 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("AddDeliveryOrder")]
-        public IEnumerable<DeliveryOrder> AddDeliveryOrder(string deliveryOrderId,DateTime deliveryOrderDate,bool orderStatus,int expectedQuantity,int actualQuantity)
+        public IEnumerable<DeliveryOrder> AddDeliveryOrder(DeliveryOrder d)
         {
 
-            if (_context.DeliveryOrders.ToList().Where(x => x.delivery_order_id == deliveryOrderId).FirstOrDefault() == null)
+            if (_context.DeliveryOrders.ToList().Where(x => x.delivery_order_id == d.delivery_order_id).FirstOrDefault() == null)
             {
                 DeliveryOrder tmp=new DeliveryOrder();
-                tmp.delivery_order_id = deliveryOrderId;
-                tmp.delivery_order_date = deliveryOrderDate;
-                tmp.actual_quantity = actualQuantity;
-                tmp.expected_quantity = expectedQuantity;
-                tmp.order_status = orderStatus;
+                tmp.delivery_order_id = d.delivery_order_id;
+                tmp.delivery_order_date = d.delivery_order_date;
+                tmp.actual_quantity = d.actual_quantity;
+                tmp.expected_quantity = d.expected_quantity;
+                tmp.order_status = d.order_status;
                 _context.DeliveryOrders.Add(tmp);
                 _context.SaveChanges();
 
