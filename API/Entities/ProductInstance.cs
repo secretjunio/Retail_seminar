@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SharedLibrary
+namespace API.Entities
 {
     public class ProductInstance
     {

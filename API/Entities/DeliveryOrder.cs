@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedLibrary
+namespace API.Entities
 {
     public class DeliveryOrder
     {

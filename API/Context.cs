@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SharedLibrary;
-
+using API.Entities;
 namespace API
 {
     public class Context : DbContext
