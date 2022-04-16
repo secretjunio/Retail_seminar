@@ -1,10 +1,10 @@
-﻿{
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:1737",
-      "sslPort": 0
+      "applicationUrl": "http://localhost:60713/",
+      "sslPort": 44395
     }
   },
   "profiles": {
@@ -17,12 +17,12 @@
     },
     "Seminar_Retail_NhanHang": {
       "commandName": "Project",
-      "dotnetRunMessages": "true",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "http://localhost:5000",
+      "dotnetRunMessages": "true"
     }
   }
 }

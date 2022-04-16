@@ -166,8 +166,6 @@ D:\Document\Seminar\Seminar\Retail_seminar\API\bin\Debug\net5.0\runtimes\win-x86
 D:\Document\Seminar\Seminar\Retail_seminar\API\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\Document\Seminar\Seminar\Retail_seminar\API\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Document\Seminar\Seminar\Retail_seminar\API\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Document\Seminar\Seminar\Retail_seminar\API\bin\Debug\net5.0\SharedLibrary.dll
-D:\Document\Seminar\Seminar\Retail_seminar\API\bin\Debug\net5.0\SharedLibrary.pdb
 D:\Document\Seminar\Seminar\Retail_seminar\API\obj\Debug\net5.0\API.csproj.AssemblyReference.cache
 D:\Document\Seminar\Seminar\Retail_seminar\API\obj\Debug\net5.0\API.GeneratedMSBuildEditorConfig.editorconfig
 D:\Document\Seminar\Seminar\Retail_seminar\API\obj\Debug\net5.0\API.AssemblyInfoInputs.cache

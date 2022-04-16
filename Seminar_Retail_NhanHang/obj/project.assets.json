@@ -1561,7 +1561,6 @@
           "Microsoft.EntityFrameworkCore": "5.0.16",
           "Microsoft.EntityFrameworkCore.Abstractions": "5.0.16",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.16",
-          "SharedLibrary": "1.0.0",
           "Swashbuckle.AspNetCore": "5.6.3"
         },
         "compile": {
@@ -1573,16 +1572,6 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
-      },
-      "SharedLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/SharedLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/SharedLibrary.dll": {}
-        }
       }
     }
   },
@@ -5907,17 +5896,11 @@
       "type": "project",
       "path": "../API/API.csproj",
       "msbuildProject": "../API/API.csproj"
-    },
-    "SharedLibrary/1.0.0": {
-      "type": "project",
-      "path": "../SharedLibrary/SharedLibrary.csproj",
-      "msbuildProject": "../SharedLibrary/SharedLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "API >= 1.0.0",
-      "SharedLibrary >= 1.0.0"
+      "API >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5949,9 +5932,6 @@
           "projectReferences": {
             "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\API\\API.csproj": {
               "projectPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\API\\API.csproj"
-            },
-            "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\SharedLibrary\\SharedLibrary.csproj": {
-              "projectPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\SharedLibrary\\SharedLibrary.csproj"
             }
           }
         }

@@ -5,6 +5,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\Document\Seminar\Public</_PublishTargetUrl>
-    <History>True|2022-04-14T18:05:27.1309942Z;</History>
+    <History>True|2022-04-16T10:41:18.6070761Z;False|2022-04-16T17:40:32.1813928+07:00;True|2022-04-15T01:05:27.1309942+07:00;</History>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="Db_name">
+      <Value>Server=ADMIN%3bInitial Catalog=RetailSeminar%3bIntegrated Security=true%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
 </Project>

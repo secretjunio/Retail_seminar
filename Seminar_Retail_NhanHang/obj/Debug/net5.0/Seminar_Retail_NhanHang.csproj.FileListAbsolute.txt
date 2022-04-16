@@ -76,12 +76,12 @@ D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\ne
 D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.genruntimeconfig.cache
 D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\ref\Seminar_Retail_NhanHang.dll
 D:\Document\Seminar\Seminar_Retail_NhanHang\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.csproj.CopyComplete
-D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\appsettings.Development.json
-D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\appsettings.json
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\API.deps.json
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\API.runtimeconfig.json
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\API.runtimeconfig.dev.json
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\API.exe
+D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\appsettings.Development.json
+D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\appsettings.json
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.exe
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.deps.json
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\Seminar_Retail_NhanHang.runtimeconfig.json
@@ -125,9 +125,7 @@ D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\API.dll
-D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\SharedLibrary.dll
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\API.pdb
-D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\SharedLibrary.pdb
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.csproj.AssemblyReference.cache
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.GeneratedMSBuildEditorConfig.editorconfig
 D:\Document\Seminar\Seminar\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.AssemblyInfoInputs.cache
