@@ -38,6 +38,4 @@ D:\Document\Seminar\Seminar\Retail_seminar\API\obj\Release\net5.0\PubTmp\Out\run
 D:\Document\Seminar\Seminar\Retail_seminar\API\obj\Release\net5.0\PubTmp\Out\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\Document\Seminar\Seminar\Retail_seminar\API\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Document\Seminar\Seminar\Retail_seminar\API\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Document\Seminar\Seminar\Retail_seminar\API\obj\Release\net5.0\PubTmp\Out\SharedLibrary.dll
-D:\Document\Seminar\Seminar\Retail_seminar\API\obj\Release\net5.0\PubTmp\Out\SharedLibrary.pdb
 D:\Document\Seminar\Seminar\Retail_seminar\API\obj\Release\net5.0\PubTmp\Out\API.deps.json

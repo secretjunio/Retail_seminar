@@ -10,11 +10,11 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ProductIntanceController : ControllerBase
+    public class ProductInstanceController : ControllerBase
     {
         private readonly Context _context;
 
-        public ProductIntanceController(Context context)
+        public ProductInstanceController(Context context)
         {
             this._context = context;
         }
@@ -32,22 +32,7 @@ namespace API.Controllers
         {
             return _context.ProductInstance.Where(x => x.product_intance_id == productInstanceID).FirstOrDefault();
         }
-        //[HttpPut]
-        //[Route("UpdateProductIntance")]
-        //public void GetProductIntance(ProductInstance p)
-        //{
-        //    if (p.product_intance_id!="")
-        //    {
-        //        ProductInstance prodToUpdate = _context.ProductInstance
-        //          .Where(p => p.product_intance_id == p.product_intance_id).FirstOrDefault();
-
-        //        if (prodToUpdate != null)
-        //        {
-        //            _context.Entry(prodToUpdate).CurrentValues.SetValues(p);
-        //        }
-        //    }
-        //    _context.SaveChanges();
-        //}
+       
         [HttpPost]
         [Route("AddProductInstance")]
         public IEnumerable<ProductInstance> AddProductInstance(ProductInstance p)

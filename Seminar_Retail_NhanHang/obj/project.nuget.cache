@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VlbIpVSNsx4iUpOxAkFwKiZQZJDrtxF6zsDmNZiPnkTyGY6mSpB5ykV+nznxUXuCqIi3mssTYrqM3IuXOcQ/Ug==",
+  "dgSpecHash": "xwcmPZq69pB3RpGmw7hqNrzmuPB4o2dM3CjboEAhSfuDOXgwsPbu3rFgXXEqLcwxS638YSTieQoWuVk6MyoC/Q==",
   "success": true,
   "projectFilePath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
   "expectedPackageFiles": [
@@ -103,7 +103,8 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.16\\microsoft.netcore.app.host.win-x64.5.0.16.nupkg.sha512"
   ],
   "logs": []
 }

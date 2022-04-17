@@ -19,7 +19,7 @@ namespace API.Migrations
                 .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SharedLibrary.DeliveryOrder", b =>
+            modelBuilder.Entity("API.Entities.DeliveryOrder", b =>
                 {
                     b.Property<string>("delivery_order_id")
                         .HasColumnType("nvarchar(450)");
@@ -33,15 +33,15 @@ namespace API.Migrations
                     b.Property<int>("expected_quantity")
                         .HasColumnType("int");
 
-                    b.Property<bool>("order_status")
-                        .HasColumnType("bit");
+                    b.Property<string>("order_status")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("delivery_order_id");
 
                     b.ToTable("DeliveryOrders");
                 });
 
-            modelBuilder.Entity("SharedLibrary.DeliveryOrderDetail", b =>
+            modelBuilder.Entity("API.Entities.DeliveryOrderDetail", b =>
                 {
                     b.Property<string>("product_instance_id")
                         .HasColumnType("nvarchar(450)");
@@ -57,7 +57,7 @@ namespace API.Migrations
                     b.ToTable("DeliveryOrderDetail");
                 });
 
-            modelBuilder.Entity("SharedLibrary.ProductInstance", b =>
+            modelBuilder.Entity("API.Entities.ProductInstance", b =>
                 {
                     b.Property<string>("product_intance_id")
                         .HasColumnType("nvarchar(450)");
@@ -70,7 +70,7 @@ namespace API.Migrations
                     b.ToTable("ProductInstance");
                 });
 
-            modelBuilder.Entity("SharedLibrary.ProductLine", b =>
+            modelBuilder.Entity("API.Entities.ProductLine", b =>
                 {
                     b.Property<string>("product_line_id")
                         .HasColumnType("nvarchar(450)");
