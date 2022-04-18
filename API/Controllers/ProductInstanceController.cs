@@ -40,11 +40,12 @@ namespace API.Controllers
 
             if (_context.ProductInstance.ToList().Where(x => x.product_intance_id == p.product_intance_id).FirstOrDefault() == null)
             {
-                if (_context.ProductLine.ToList().Where(x => x.product_line_id == p.product_line_id).FirstOrDefault() != null)
-                {
-                    _context.ProductInstance.Add(p);
-                    _context.SaveChanges();
-                }
+                //if (_context.ProductLine.ToList().Where(x => x.product_line_id == p.product_line_id).FirstOrDefault() != null)
+                //{
+              
+                _context.ProductInstance.Add(p);
+                _context.SaveChanges();
+                //}
 
             }
 

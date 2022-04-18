@@ -59,14 +59,16 @@ namespace API.Controllers
 
             if (_context.DeliveryOrderDetail.ToList().Where(x => x.delivery_order_id == d.delivery_order_id && x.product_instance_id == d.product_instance_id).FirstOrDefault() == null)
             {
-                DeliveryOrderDetail tmp = new DeliveryOrderDetail();
-                tmp.delivery_order_id = d.delivery_order_id;
-                tmp.product_instance_id = d.product_instance_id;
-                tmp.is_checked = d.is_checked;
+                if (_context.DeliveryOrders.Where(x => x.delivery_order_id == d.delivery_order_id).FirstOrDefault() != null)
+                {
+                    DeliveryOrderDetail tmp = new DeliveryOrderDetail();
+                    tmp.delivery_order_id = d.delivery_order_id;
+                    tmp.product_instance_id = d.product_instance_id;
+                    tmp.is_checked = d.is_checked;
 
-                _context.DeliveryOrderDetail.Add(tmp);
-                _context.SaveChanges();
-
+                    _context.DeliveryOrderDetail.Add(tmp);
+                    _context.SaveChanges();
+                }
             }
             else
             {
