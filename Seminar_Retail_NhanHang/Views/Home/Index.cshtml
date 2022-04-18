@@ -1,8 +1,63 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model Seminar_Retail_NhanHang.Models.ModelView
+<style>
+    .tbl tr td{
+        padding:10px 5px 10px 5px;
+        background-color:lightblue;
+        min-height:30px;
+        min-width:100px;
+    }    
+</style>
+<form action="Home/CreateDeliveryOrder"><button class="btn-success">Create New Order</button></form>
+<table class="tbl" align="center" border="1">
+    
+    <tr>
+        <td>
+            Id Order
+        </td>
+        <td>
+            Order Date
+        </td>
+        <td>
+            Status
+        </td>
+        <td>
+            Expected Quantity
+        </td>
+        <td>
+            Actual Quantity
+        </td>
+    </tr>
+    @try
+    {
+        @foreach (var i in @Model.DeliveryOrders)
+        {
+            <tr>
+                <td>
+                    @i.delivery_order_id
+                </td>
+                <td>
+                    @i.delivery_order_date
+                </td>
+                <td>
+                    @i.order_status
+                </td>
+                <td>
+                    @i.expected_quantity
+                </td>
+                <td>
+                    @i.actual_quantity
+                </td>
+            </tr>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        }
+    }
+    catch (Exception e)
+    {
+        e.Message.ToString();
+    }
+
+
+</table>

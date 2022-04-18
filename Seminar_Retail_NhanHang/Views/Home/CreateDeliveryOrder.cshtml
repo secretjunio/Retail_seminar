@@ -1,0 +1,57 @@
+﻿<h2>Create Delivery Order</h2>
+
+@model API.Entities.DeliveryOrder
+
+
+<form method="post" action="CreateDeliveryOrder">
+    <table>
+        <tr>
+            <td>
+                <p>Delivery Order Id</p>
+            </td>
+             <td>
+                 <input asp-for="@Model.delivery_order_id"  />
+            </td>
+        </tr>
+         <tr>
+            <td>
+                Delivery Order Date
+            </td>
+             <td>
+                 <input asp-for="@Model.delivery_order_date" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Order Status
+            </td>
+             <td>
+                 <select asp-for="@Model.order_status">
+                     <option>
+                         true
+                     </option>
+                     <option>
+                         false
+                     </option>
+                 </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Expected Quantity
+            </td>
+             <td>
+                  <input asp-for="@Model.expected_quantity" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Acutal Quantity
+            </td>
+             <td>
+                  <input asp-for="@Model.actual_quantity" />
+            </td>
+        </tr>
+        <tr><td colspan=5><button>Submit</button></td></tr>
+    </table>
+</form>
