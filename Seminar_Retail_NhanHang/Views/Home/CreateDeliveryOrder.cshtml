@@ -1,57 +1,37 @@
-﻿<h2>Create Delivery Order</h2>
+﻿
+@model DeliveryOrderModel
 
-@model API.Entities.DeliveryOrder
+<div class="container-fluid">
+    <h1 align="center">Tạo đơn hàng giao hàng</h1>
+    <div class="row">
+        <form style="width:900px;margin:0 auto;" method="post" asp-action="CreateDeliveryOrder" asp-controller="Home">
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="delivery_order_date"></label>
+                <input type="date" asp-for="delivery_order_date" class="form-control"/>
+                @Html.ValidationMessageFor(model => model.delivery_order_date, null, new { @class = "text-danger" })
+            </div>
 
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="order_status"></label>
+                <select class="form-control" asp-for="order_status">
+                    <option value="Processing">Đang xử lý</option>
+                    <option value="Processed">Đã xử lý</option>
+                </select>
+                <span asp-validation-for="order_status" class="text-danger"></span>
+            </div>
 
-<form method="post" action="CreateDeliveryOrder">
-    <table>
-        <tr>
-            <td>
-                <p>Delivery Order Id</p>
-            </td>
-             <td>
-                 <input asp-for="@Model.delivery_order_id"  />
-            </td>
-        </tr>
-         <tr>
-            <td>
-                Delivery Order Date
-            </td>
-             <td>
-                 <input asp-for="@Model.delivery_order_date" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Order Status
-            </td>
-             <td>
-                 <select asp-for="@Model.order_status">
-                     <option>
-                         true
-                     </option>
-                     <option>
-                         false
-                     </option>
-                 </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Expected Quantity
-            </td>
-             <td>
-                  <input asp-for="@Model.expected_quantity" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Acutal Quantity
-            </td>
-             <td>
-                  <input asp-for="@Model.actual_quantity" />
-            </td>
-        </tr>
-        <tr><td colspan=5><button>Submit</button></td></tr>
-    </table>
-</form>
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="expected_quantity"></label>
+                <input type="text" asp-for="expected_quantity" class="form-control" />
+                <span asp-validation-for="expected_quantity" class="text-danger"></span>
+            </div>
+
+            <div class="text-center mt-2">
+                <input type="submit" id="submit" class="btn btn-success mb-2" value="Tạo đơn hàng">
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <a href="/Home/Index" class="btn btn-primary">Về danh sách đơn hàng</a>
+    </div>
+</div>

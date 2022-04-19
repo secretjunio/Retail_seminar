@@ -34,6 +34,9 @@
       "Seminar_Retail_NhanHang/1.0.0": {
         "dependencies": {
           "API": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.16",
+          "Microsoft.EntityFrameworkCore.Design": "5.0.16",
+          "Microsoft.EntityFrameworkCore.Tools": "5.0.16",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -323,7 +326,15 @@
           "Seminar_Retail_NhanHang.dll": {}
         }
       },
-      "Microsoft.CSharp/4.5.0": {},
+      "Humanizer.Core/2.8.26": {
+        "runtime": {
+          "lib/netstandard2.0/Humanizer.dll": {
+            "assemblyVersion": "2.8.0.0",
+            "fileVersion": "2.8.26.1919"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.7.0": {},
       "Microsoft.Data.SqlClient/2.0.1": {
         "dependencies": {
           "Microsoft.Data.SqlClient.SNI.runtime": "2.0.1",
@@ -438,6 +449,19 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/5.0.16": {},
+      "Microsoft.EntityFrameworkCore.Design/5.0.16": {
+        "dependencies": {
+          "Humanizer.Core": "2.8.26",
+          "Microsoft.CSharp": "4.7.0",
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.16"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.dll": {
+            "assemblyVersion": "5.0.16.0",
+            "fileVersion": "5.0.1622.16102"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/5.0.16": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.16",
@@ -466,6 +490,11 @@
         },
         "compile": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/5.0.16": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "5.0.16"
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
@@ -521,7 +550,7 @@
       "Microsoft.Extensions.Primitives/5.0.0": {},
       "Microsoft.Identity.Client/4.14.0": {
         "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.7.0",
           "System.ComponentModel.TypeConverter": "4.3.0",
           "System.Net.NameResolution": "4.3.0",
           "System.Private.Uri": "4.3.2",
@@ -637,7 +666,7 @@
       },
       "Newtonsoft.Json/10.0.1": {
         "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.7.0",
           "System.Collections": "4.3.0",
           "System.ComponentModel.TypeConverter": "4.3.0",
           "System.Diagnostics.Debug": "4.3.0",
@@ -3052,12 +3081,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.CSharp/4.5.0": {
+    "Humanizer.Core/2.8.26": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
-      "path": "microsoft.csharp/4.5.0",
-      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
+      "sha512": "sha512-OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
+      "path": "humanizer.core/2.8.26",
+      "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
+    },
+    "Microsoft.CSharp/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "path": "microsoft.csharp/4.7.0",
+      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
     "Microsoft.Data.SqlClient/2.0.1": {
       "type": "package",
@@ -3094,6 +3130,13 @@
       "path": "microsoft.entityframeworkcore.analyzers/5.0.16",
       "hashPath": "microsoft.entityframeworkcore.analyzers.5.0.16.nupkg.sha512"
     },
+    "Microsoft.EntityFrameworkCore.Design/5.0.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LoOs2a4OhPPPv4AdjRMDEn4FJXhLZ5L8uiriomNYTdS7UqP7+7b32s+xDuntqfJhIFMNURaZtT1nDeVLaseb+g==",
+      "path": "microsoft.entityframeworkcore.design/5.0.16",
+      "hashPath": "microsoft.entityframeworkcore.design.5.0.16.nupkg.sha512"
+    },
     "Microsoft.EntityFrameworkCore.Relational/5.0.16": {
       "type": "package",
       "serviceable": true,
@@ -3107,6 +3150,13 @@
       "sha512": "sha512-CMfZHL4vdQD5JUYdmcA90LkuV9XkNF97hhSBUzcZPZ7VFgQR7etvn9NVsDvoi+Gn08p1lU4KsCJw7B3Ye5GlVQ==",
       "path": "microsoft.entityframeworkcore.sqlserver/5.0.16",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.5.0.16.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Tools/5.0.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-56FD9EtENIN/0SnQ7jPCURL0jgawraHhyJb2Qtf9y8PK8nOE+YfyabLsC4MGWxVgxe4c3pFon+3SWl0I1qqIFg==",
+      "path": "microsoft.entityframeworkcore.tools/5.0.16",
+      "hashPath": "microsoft.entityframeworkcore.tools.5.0.16.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
       "type": "package",
@@ -3321,7 +3371,7 @@
     "System.Collections.NonGeneric/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
+      "sha512": "sha512-LE/oChpRvkSi3U25u0KnJcI44JeDZ1QJCyN4qFDx2uusEypdqR24w7lKYw21eYe5esuCBuc862wRmpF63Yy1KQ==",
       "path": "system.collections.nongeneric/4.3.0",
       "hashPath": "system.collections.nongeneric.4.3.0.nupkg.sha512"
     },
@@ -3615,7 +3665,7 @@
     "System.Runtime.Serialization.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
+      "sha512": "sha512-2Z5t70a2SwMsfQDp9KOclaZNyQhfIga2gppq9lIUDM1A4ohTshn4JqT7ir8bvIhXgorWKYDAr6rPzEbi/nTGKg==",
       "path": "system.runtime.serialization.primitives/4.3.0",
       "hashPath": "system.runtime.serialization.primitives.4.3.0.nupkg.sha512"
     },
@@ -3748,7 +3798,7 @@
     "System.Xml.XmlSerializer/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
+      "sha512": "sha512-VShQJhOxgD/5M2Z1IWm1vMaSqlbjo1zdFf8H7Ahte6bTvSUhUko/gDpAVVhGgGgTDeue4QyNg1fu1Zz2GKSEuQ==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },

@@ -2,62 +2,70 @@
     ViewData["Title"] = "Home Page";
 }
 @model Seminar_Retail_NhanHang.Models.ModelView
-<style>
-    .tbl tr td{
-        padding:10px 5px 10px 5px;
-        background-color:lightblue;
-        min-height:30px;
-        min-width:100px;
-    }    
-</style>
-<form action="Home/CreateDeliveryOrder"><button class="btn-success">Create New Order</button></form>
-<table class="tbl" align="center" border="1">
-    
-    <tr>
-        <td>
-            Id Order
-        </td>
-        <td>
-            Order Date
-        </td>
-        <td>
-            Status
-        </td>
-        <td>
-            Expected Quantity
-        </td>
-        <td>
-            Actual Quantity
-        </td>
-    </tr>
-    @try
-    {
-        @foreach (var i in @Model.DeliveryOrders)
-        {
-            <tr>
-                <td>
-                    @i.delivery_order_id
-                </td>
-                <td>
-                    @i.delivery_order_date
-                </td>
-                <td>
-                    @i.order_status
-                </td>
-                <td>
-                    @i.expected_quantity
-                </td>
-                <td>
-                    @i.actual_quantity
-                </td>
-            </tr>
 
+<div class="container-fluid dashboard-content">
+    <div class="row">
+        <a class="btn btn-info mb-3" asp-controller="Home" asp-action="CreateDeliveryOrder">Tạo mới đơn hàng <i class="fa fa-plus-circle"></i></a>
+
+        <table class="table table-bordered table-hover table-striped text-center" style="display:block;overflow:auto">
+            <thead class="thead-light" style="display:table;width:100%;table-layout:fixed; font-weight: bold;">
+                <tr>
+                    <th scope="col">Mã đơn hàng</th>
+                    <th scope="col">Ngày tạo đơn</th>
+                    <th scope="col">Trạng thái đơn hàng</th>
+                    <th scope="col">Số lượng hàng muốn nhập</th>
+                    <th scope="col">Số lượng hàng sau khi nhập</th>
+                    <th scope="col">Thao tác</th>
+                </tr>
+            </thead>
+                <tbody style="display:block;overflow:auto;max-height:420px;width:auto">
+                @{
+                    int n = 0;
+                    foreach (var i in @Model.DeliveryOrders)
+                    {
+                        n++;
+                        <tr id="page_@n" style="display:table;width:100%;table-layout:fixed;height:100px">
+                            <td>@i.delivery_order_id</td>
+                            <td>@i.delivery_order_date</td>
+                            @{
+                                if(i.order_status == "Processing"){
+                                    <td>Đang xử lý</td>
+                                }
+                                if(i.order_status == "Processed"){
+                                    <td>Đã xử lý</td>
+                                }
+                            }
+                            <td>@i.expected_quantity</td>
+                            <td>@i.actual_quantity</td>
+                            <td>
+                                <a asp-route-id="@i.delivery_order_id"
+                                   asp-action="Edit"
+                                   asp-controller="Home"
+                                   class="btn btn-info btn-sm">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a asp-route-id="@i.delivery_order_id"
+                                   asp-action="Delete"
+                                   asp-controller="Home"
+                                   onclick="return confirmRemove()"
+                                   class="btn btn-sm btn-danger">
+                                   <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>          
+        </table>
+</div>
+</div>
+
+<script>
+    function confirmRemove() {
+        var a = confirm("Bạn có muốn xoá đơn hàng này không.?");
+        if (a) {
+            return true;
         }
+        return false;
     }
-    catch (Exception e)
-    {
-        e.Message.ToString();
-    }
-
-
-</table>
+</script>

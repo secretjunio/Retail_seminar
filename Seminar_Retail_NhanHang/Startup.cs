@@ -1,4 +1,6 @@
 using API;
+using API.Persistance.IRepository;
+using API.Persistance.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +28,8 @@ namespace Seminar_Retail_NhanHang
         {
             services.AddControllersWithViews();
             services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("Db_name")));
+
+            services.AddScoped<IDeliveryOrderRepository, DeliveryOrderRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj": {}
+    "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj": {}
   },
   "projects": {
-    "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\API\\API.csproj": {
+    "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\API\\API.csproj",
+        "projectUniqueName": "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\API\\API.csproj",
+        "projectPath": "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\API\\obj\\",
+        "outputPath": "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -79,12 +84,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.16, 5.0.16]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -97,17 +96,22 @@
         }
       }
     },
-    "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj": {
+    "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
+        "projectUniqueName": "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
         "projectName": "Seminar_Retail_NhanHang",
-        "projectPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
+        "projectPath": "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\Seminar_Retail_NhanHang\\obj\\",
+        "outputPath": "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\Seminar_Retail_NhanHang\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -121,8 +125,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\API\\API.csproj": {
-                "projectPath": "D:\\Document\\Seminar\\Seminar\\Retail_seminar\\API\\API.csproj"
+              "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\API\\API.csproj": {
+                "projectPath": "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\API\\API.csproj"
               }
             }
           }
@@ -136,6 +140,24 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.16, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -146,12 +168,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.16, 5.0.16]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"

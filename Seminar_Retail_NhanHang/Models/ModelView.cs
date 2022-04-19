@@ -13,5 +13,8 @@ namespace Seminar_Retail_NhanHang.Models
         public IEnumerable<ProductInstance> ProductInstances { get; set; }
         public IEnumerable<ProductLine> ProductLines { get; set; }
         public ProductLine ProductLine { get; set; }
+
+        public DeliveryOrderModel DOM { get; set; }
+        public DeliveryOrderModel DeliveryOrderModel { get; set; }
     }
 }

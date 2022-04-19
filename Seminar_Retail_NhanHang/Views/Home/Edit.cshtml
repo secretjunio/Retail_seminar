@@ -1,0 +1,63 @@
+﻿
+@model ModelView
+@{ 
+    var date = Model.DeliveryOrder.delivery_order_date.Split("-");
+    var convertDate = date[2] + "-" + date[1] + "-" + date[0];
+}
+<div class="container-fluid">
+    <h1 align="center">Chỉnh sửa đơn hàng giao hàng</h1>
+    <div class="row">
+        <form style="width:900px;margin:0 auto;" method="post" asp-action="Edit" asp-controller="Home">
+            <div hidden>
+                <label>ID tự động</label>
+                <input name="AutoID" value="@Model.DeliveryOrder.AutoID" type="text" />
+            </div>
+
+            <div hidden>
+                <label>ID đơn hàng</label>
+                <input name="delivery_order_id" value="@Model.DeliveryOrder.delivery_order_id" type="text" />
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="@Model.DOM.delivery_order_date"></label>
+                <input type="date" value="@convertDate" name="delivery_order_date" class="form-control" />
+                <span asp-validation-for="DOM.delivery_order_date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="@Model.DOM.order_status"></label>
+                <select class="form-control" name="order_status">
+                    @{
+                        if(Model.DeliveryOrder.order_status == "Processing")
+                        {
+                            <option value="Processing" selected>Đang xử lý</option>
+                            <option value="Processed">Đã xử lý</option>
+                        }else{
+                            <option value="Processing">Đang xử lý</option>
+                            <option value="Processed" selected>Đã xử lý</option>
+                        }
+                    }                
+                </select>
+                <span asp-validation-for="@Model.DOM.order_status" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="@Model.DOM.expected_quantity"></label>
+                <input type="text" name="expected_quantity" value="@Model.DeliveryOrder.expected_quantity" class="form-control" />
+                <span asp-validation-for="DOM.expected_quantity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="@Model.DOM.actual_quantity"></label>
+                <input type="text" name="actual_quantity" value="@Model.DeliveryOrder.actual_quantity" class="form-control" />
+            </div>
+
+            <div class="text-center mt-2">
+                <input type="submit" id="submit" class="btn btn-success mb-2" value="Cập nhật đơn hàng">
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <a href="/Home/Index" class="btn btn-primary">Về danh sách đơn hàng</a>
+    </div>
+</div>
