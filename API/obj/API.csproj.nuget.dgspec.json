@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\API\\API.csproj": {}
+    "D:\\Document\\Seminar\\Retail_seminar\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\API\\API.csproj": {
+    "D:\\Document\\Seminar\\Retail_seminar\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\API\\API.csproj",
+        "projectUniqueName": "D:\\Document\\Seminar\\Retail_seminar\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\API\\API.csproj",
+        "projectPath": "D:\\Document\\Seminar\\Retail_seminar\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\CodeC#\\.NET CORE MVC\\Retail_seminar\\API\\obj\\",
+        "outputPath": "D:\\Document\\Seminar\\Retail_seminar\\API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,6 +79,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.16, 5.0.16]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"

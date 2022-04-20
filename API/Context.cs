@@ -13,6 +13,7 @@ namespace API
         public DbSet<DeliveryOrderDetail> DeliveryOrderDetail { get; set; }
         public DbSet<ProductInstance> ProductInstance { get; set; }
         public DbSet<ProductLine> ProductLine { get; set; }
+        public DbSet<TagReader> tagReaders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
