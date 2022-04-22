@@ -12,7 +12,7 @@ namespace API.Entities
         [Key]
         public string product_line_id { get; set; }
         public string name { get; set; }
-        public string price { get; set; }
-        public string stock { get; set; }
+        public float price { get; set; }
+        public int stock { get; set; }
     }
 }

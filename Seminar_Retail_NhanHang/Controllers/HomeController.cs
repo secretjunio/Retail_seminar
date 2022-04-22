@@ -16,11 +16,20 @@ namespace Seminar_Retail_NhanHang.Controllers
     {
         private readonly Context _context;
         private readonly IDeliveryOrderRepository _deliveryOrderRepository;
-        private readonly ILogger _logger;
-        public HomeController(Context context, IDeliveryOrderRepository deliveryOrderRepository)
+        private readonly IDeliveryOrderDetailRepository _deliveryOrderDetailRepository;
+        private readonly ITagReaderRepository _tagReaderRepository;
+        private readonly IProductInstanceRepository _productInstanceRepository;
+        private readonly IProductLineRepository _productLineRepository;
+        public HomeController(Context context, IDeliveryOrderRepository deliveryOrderRepository,
+                            IProductInstanceRepository productInstanceRepository,ITagReaderRepository tagReaderRepository,
+                            IProductLineRepository productLineRepository,IDeliveryOrderDetailRepository deliveryOrderDetailRepository)
         {
-            this._context = context;
+            _context = context;
             _deliveryOrderRepository = deliveryOrderRepository;
+            _deliveryOrderDetailRepository=deliveryOrderDetailRepository;
+            _tagReaderRepository = tagReaderRepository;
+            _productInstanceRepository = productInstanceRepository;
+            _productLineRepository = productLineRepository;
         }
 
         public IActionResult Index()
@@ -94,9 +103,34 @@ namespace Seminar_Retail_NhanHang.Controllers
 
         public IActionResult MappingTagAndProduct()
         {
+            var tag = _context.TagReaders.ToList();
+            var productInstance = _context.ProductInstances.ToList();
+            var productLine = _context.ProductLines.ToList();
+            ModelView m = new ModelView
+            {
+                tagReaders = tag,
+                ProductLines = productLine,
+                ProductInstances = productInstance
+            };
 
+            return View(m);
+        }
+        [HttpPost]
+        public void MappingTagAndProduct(ProductInstance p)
+        {
+            try
+            {
+                if (p != null)
+                {
+                    _context.ProductInstances.Add(p);
+                    _context.SaveChanges();
+                }
+            }catch(Exception ex)
+            {
 
-            return View();
+            }
+            Response.Redirect("/Home/Index");
+
         }
     }
 }

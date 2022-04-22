@@ -16,5 +16,8 @@ namespace Seminar_Retail_NhanHang.Models
 
         public DeliveryOrderModel DOM { get; set; }
         public DeliveryOrderModel DeliveryOrderModel { get; set; }
+
+        public TagReader tagReader { get; set; }
+        public IEnumerable<TagReader> tagReaders { get; set; }
     }
 }
