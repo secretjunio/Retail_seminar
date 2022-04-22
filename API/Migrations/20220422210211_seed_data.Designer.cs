@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220419064557_UpdateCSDL4")]
-    partial class UpdateCSDL4
+    [Migration("20220422210211_seed_data")]
+    partial class seed_data
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,20 +60,20 @@ namespace API.Migrations
 
                     b.HasKey("product_instance_id", "delivery_order_id");
 
-                    b.ToTable("DeliveryOrderDetail");
+                    b.ToTable("DeliveryOrderDetails");
                 });
 
             modelBuilder.Entity("API.Entities.ProductInstance", b =>
                 {
-                    b.Property<string>("product_intance_id")
+                    b.Property<string>("product_instance_id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("product_line_id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("product_intance_id", "product_line_id");
+                    b.HasKey("product_instance_id", "product_line_id");
 
-                    b.ToTable("ProductInstance");
+                    b.ToTable("ProductInstances");
                 });
 
             modelBuilder.Entity("API.Entities.ProductLine", b =>
@@ -84,15 +84,31 @@ namespace API.Migrations
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("price")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<float>("price")
+                        .HasColumnType("real");
 
-                    b.Property<string>("stock")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("stock")
+                        .HasColumnType("int");
 
                     b.HasKey("product_line_id");
 
-                    b.ToTable("ProductLine");
+                    b.ToTable("ProductLines");
+                });
+
+            modelBuilder.Entity("API.Entities.TagReader", b =>
+                {
+                    b.Property<string>("TagUii")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TagRssi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TagUii");
+
+                    b.ToTable("TagReaders");
                 });
 #pragma warning restore 612, 618
         }

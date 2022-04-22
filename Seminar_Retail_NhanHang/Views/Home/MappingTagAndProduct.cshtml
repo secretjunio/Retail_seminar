@@ -1,0 +1,43 @@
+﻿@model ModelView
+
+<div class="container-fluid">
+
+    <h1 class="text-lg-center">Ánh xạ RFID và sản phẩm</h1>
+    <form action="MappingTagAndProduct" method="post">
+          <table class="table table-bordered table-hover table-striped text-center" style="display:block;overflow:auto">
+        <thead class="thead-light" style="display:table;width:100%;table-layout:fixed; font-weight: bold;">
+            <tr>
+                <td>
+                    Mã RfId
+                </td>
+                <td>
+                    Tên Sản Phẩm
+                </td>
+            </tr>
+        </thead>
+        @foreach (var item in Model.tagReaders)
+        {
+            <tr>
+                <td>
+                    <input asp-for="@Model.ProductInstance.product_instance_id" value="@item.TagUii" disabled />
+                </td>
+                <td>
+                    <select asp-for="@Model.ProductInstance.product_line_id">
+                        @foreach (var pl in Model.ProductLines)
+                        {
+                            <option value=@pl.product_line_id>
+                                @pl.name
+                            </option>
+                        }
+
+                    </select>
+                </td>
+            </tr>
+        }
+        <tr style="width:100%">
+            <td class="align-content-center" style="display:table;width:100%" colspan="2"><input type="button" class="btn-success" value="Xác Nhận" /></td>
+        </tr>
+    </table>
+    </form>
+  
+</div>
