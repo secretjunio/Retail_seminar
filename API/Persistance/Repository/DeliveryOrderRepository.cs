@@ -10,37 +10,42 @@ namespace API.Persistance.Repository
 {
     public class DeliveryOrderRepository : IDeliveryOrderRepository
     {
-        private readonly Context context;
+        private readonly Context _context;
         public DeliveryOrderRepository(Context context)
         {
-            this.context = context;
+            this._context = context;
         }
         public void createDeliveryOrder(DeliveryOrder DeliveryOrder)
         {
-            context.DeliveryOrders.Add(DeliveryOrder);
-            context.SaveChanges();
+            _context.DeliveryOrders.Add(DeliveryOrder);
+            _context.SaveChanges();
         }
 
         public void editDeliveryOrder(DeliveryOrder DeliveryOrder)
         {
-            //context.DeliveryOrders.Update(DeliveryOrder);
-            context.SaveChanges();
+            var toUpdate = _context.DeliveryOrders.Where(x => x.delivery_order_id == DeliveryOrder.delivery_order_id).FirstOrDefault();
+            DeliveryOrder.delivery_order_id = toUpdate.delivery_order_id;
+            if (toUpdate != null)
+            {
+                _context.Entry(toUpdate).CurrentValues.SetValues(DeliveryOrder);
+                _context.SaveChanges();
+            }
         }
 
         public IEnumerable<DeliveryOrder> DeliveryOrders()
         {
-            return context.DeliveryOrders.ToList();
+            return _context.DeliveryOrders.ToList();
         }
 
-        public DeliveryOrder FindByID(string id)
+        public DeliveryOrder FindById(string Id)
         {
-            return context.DeliveryOrders.Find(id);
+            return _context.DeliveryOrders.Find(Id);
         }
 
-        public void removeDeliveryOrder(string id)
+        public void removeDeliveryOrder(string Id)
         {
-            context.DeliveryOrders.Remove(context.DeliveryOrders.Find(id));
-            context.SaveChanges();
+            _context.DeliveryOrders.Remove(_context.DeliveryOrders.Find(Id));
+            _context.SaveChanges();
         }
     }
 }

@@ -82,7 +82,7 @@ namespace API.Controllers
         [Route("DeleteDeliveryOrder")]
         public IEnumerable<DeliveryOrder> DeleteDeliveryOrder(string deliveryOrder)
         {
-            var tmpDeliveryOrderDetail = _context.DeliveryOrderDetail.Where(x => x.delivery_order_id == deliveryOrder).ToList();
+            var tmpDeliveryOrderDetail = _context.DeliveryOrderDetails.Where(x => x.delivery_order_id == deliveryOrder).ToList();
             var tmpDeliveryOrder = _context.DeliveryOrders.Where(x => x.delivery_order_id == deliveryOrder).FirstOrDefault();
             if (tmpDeliveryOrder != null)
             {
@@ -91,7 +91,7 @@ namespace API.Controllers
                 {
                     foreach(var i in tmpDeliveryOrderDetail)
                     {
-                        _context.DeliveryOrderDetail.Remove(i);
+                        _context.DeliveryOrderDetails.Remove(i);
                     }
                     _context.DeliveryOrders.Remove(tmpDeliveryOrder);
                 }

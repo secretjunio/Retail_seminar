@@ -24,14 +24,14 @@ namespace API.Controllers
         [Route("GetListDeliveryOrderDetail")]
         public IEnumerable<DeliveryOrderDetail> GetListDeliveryOrderDetail()
         {
-            return _context.DeliveryOrderDetail.ToList();
+            return _context.DeliveryOrderDetails.ToList();
 
         }
         [HttpGet]
         [Route("GetOneDeliveryOrderDetail")]
         public DeliveryOrderDetail getDeliveryOrderDetail(string DeliveryOrderDetailId)
         {
-            return _context.DeliveryOrderDetail.Where(x => x.delivery_order_id == DeliveryOrderDetailId).FirstOrDefault();
+            return _context.DeliveryOrderDetails.Where(x => x.delivery_order_id == DeliveryOrderDetailId).FirstOrDefault();
         }
         [HttpPut]
         [Route("UpdateDeliveryOrderDetail")]
@@ -39,7 +39,7 @@ namespace API.Controllers
         {
             if (d.delivery_order_id != "")
             {
-                DeliveryOrderDetail toUpdate = _context.DeliveryOrderDetail
+                DeliveryOrderDetail toUpdate = _context.DeliveryOrderDetails
                   .Where(p => p.delivery_order_id == d.delivery_order_id && p.product_instance_id == d.product_instance_id).FirstOrDefault();
                 DeliveryOrderDetail tmp = new DeliveryOrderDetail();
                 tmp.delivery_order_id = toUpdate.delivery_order_id;//primary key can not change
@@ -57,7 +57,7 @@ namespace API.Controllers
         public IEnumerable<DeliveryOrderDetail> AddDeliveryOrderDetail(DeliveryOrderDetail d)
         {
 
-            if (_context.DeliveryOrderDetail.ToList().Where(x => x.delivery_order_id == d.delivery_order_id && x.product_instance_id == d.product_instance_id).FirstOrDefault() == null)
+            if (_context.DeliveryOrderDetails.ToList().Where(x => x.delivery_order_id == d.delivery_order_id && x.product_instance_id == d.product_instance_id).FirstOrDefault() == null)
             {
                 if (_context.DeliveryOrders.Where(x => x.delivery_order_id == d.delivery_order_id).FirstOrDefault() != null)
                 {
@@ -66,7 +66,7 @@ namespace API.Controllers
                     tmp.product_instance_id = d.product_instance_id;
                     tmp.is_checked = d.is_checked;
 
-                    _context.DeliveryOrderDetail.Add(tmp);
+                    _context.DeliveryOrderDetails.Add(tmp);
                     _context.SaveChanges();
                 }
             }
@@ -75,22 +75,22 @@ namespace API.Controllers
                 Console.WriteLine("can not insert duplicate");
             }
 
-            return _context.DeliveryOrderDetail.ToList();
+            return _context.DeliveryOrderDetails.ToList();
         }
         [HttpDelete]
         [Route("DeleteDeliveryOrderDetail")]
         public IEnumerable<DeliveryOrderDetail> DeleteDeliveryOrderDetail(string DeliveryOrderDetail, string productInstanceId)
         {
 
-            var tmpDeliveryOrderDetail = _context.DeliveryOrderDetail.Where(x => x.delivery_order_id == DeliveryOrderDetail && x.product_instance_id == productInstanceId).FirstOrDefault();
+            var tmpDeliveryOrderDetail = _context.DeliveryOrderDetails.Where(x => x.delivery_order_id == DeliveryOrderDetail && x.product_instance_id == productInstanceId).FirstOrDefault();
             if (tmpDeliveryOrderDetail != null)
             {
-                _context.DeliveryOrderDetail.Remove(tmpDeliveryOrderDetail);
+                _context.DeliveryOrderDetails.Remove(tmpDeliveryOrderDetail);
 
             }
 
             _context.SaveChanges();
-            return _context.DeliveryOrderDetail.ToList();
+            return _context.DeliveryOrderDetails.ToList();
         }
     }
 }

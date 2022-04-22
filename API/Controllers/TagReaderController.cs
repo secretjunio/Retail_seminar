@@ -19,44 +19,44 @@ namespace API.Controllers
         [HttpGet]
         public TagReader GetTagReader(string Id)
         {
-            return _context.tagReaders.Where(x => x.TagUii == Id).FirstOrDefault();
+            return _context.TagReaders.Where(x => x.TagUii == Id).FirstOrDefault();
         }
 
         [Route("GetListTagReader")]
         [HttpGet]
         public IEnumerable<TagReader> GetListTagReader()
         {
-            return _context.tagReaders.ToList();
+            return _context.TagReaders.ToList();
         }
 
         [Route("AddTagReader")]
         [HttpPost]
         public IEnumerable<TagReader> AddTagReader(TagReader t)
         {
-            if(_context.tagReaders.Where(x => x.TagUii == t.TagUii).FirstOrDefault() == null)
+            if(_context.TagReaders.Where(x => x.TagUii == t.TagUii).FirstOrDefault() == null)
             {
-                _context.tagReaders.Add(t);
+                _context.TagReaders.Add(t);
                 _context.SaveChanges();
             }
-            return _context.tagReaders.ToList();
+            return _context.TagReaders.ToList();
         }
         [Route("DeleteTagReader")]
         [HttpDelete]
         public IEnumerable<TagReader> DeleteTagReader(string TagUii)
         {
-            TagReader t = _context.tagReaders.Where(x => x.TagUii == TagUii).FirstOrDefault();
+            TagReader t = _context.TagReaders.Where(x => x.TagUii == TagUii).FirstOrDefault();
             if (t != null)
             {
-                _context.tagReaders.Remove(t);
+                _context.TagReaders.Remove(t);
                 _context.SaveChanges();
             }
-            return _context.tagReaders.ToList();
+            return _context.TagReaders.ToList();
         }
         [Route("EditDeleteTagReader")]
         [HttpPut]
         public IEnumerable<TagReader> EditTagReader(TagReader t)
         {
-            TagReader ToUpdate = _context.tagReaders.Where(x => x.TagUii == t.TagUii).FirstOrDefault();
+            TagReader ToUpdate = _context.TagReaders.Where(x => x.TagUii == t.TagUii).FirstOrDefault();
             TagReader temp = new TagReader();
             if (temp != null)
             {
@@ -69,7 +69,7 @@ namespace API.Controllers
                 }
                 _context.SaveChanges();
             }
-            return _context.tagReaders.ToList();
+            return _context.TagReaders.ToList();
         }
     }
 }

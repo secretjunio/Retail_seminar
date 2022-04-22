@@ -30,6 +30,10 @@ namespace Seminar_Retail_NhanHang
             services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("Db_name")));
 
             services.AddScoped<IDeliveryOrderRepository, DeliveryOrderRepository>();
+            services.AddScoped<IProductInstanceRepository, ProductInstanceRepository>();
+            services.AddScoped<IDeliveryOrderDetailRepository, DeliveryOrderDetailRepository>();
+            services.AddScoped<IProductLineRepository, ProductLineRepository>();
+            services.AddScoped<ITagReaderRepository, TagReaderRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

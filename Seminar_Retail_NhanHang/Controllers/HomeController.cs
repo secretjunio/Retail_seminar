@@ -16,7 +16,7 @@ namespace Seminar_Retail_NhanHang.Controllers
     {
         private readonly Context _context;
         private readonly IDeliveryOrderRepository _deliveryOrderRepository;
-
+        private readonly ILogger _logger;
         public HomeController(Context context, IDeliveryOrderRepository deliveryOrderRepository)
         {
             this._context = context;
@@ -56,7 +56,7 @@ namespace Seminar_Retail_NhanHang.Controllers
         public IActionResult Edit(string id)
         {
             ModelView m = new ModelView {
-                DeliveryOrder = _deliveryOrderRepository.FindByID(id),
+                DeliveryOrder = _deliveryOrderRepository.FindById(id),
                 DeliveryOrders = _deliveryOrderRepository.DeliveryOrders()
             };
             return View(m);
@@ -69,7 +69,7 @@ namespace Seminar_Retail_NhanHang.Controllers
             {
                 if (model.delivery_order_id != "")
                 {
-                    API.Entities.DeliveryOrder deliveryOrder = _deliveryOrderRepository.FindByID(model.delivery_order_id);
+                    API.Entities.DeliveryOrder deliveryOrder = _deliveryOrderRepository.FindById(model.delivery_order_id);
                     deliveryOrder.delivery_order_date = DateTime.Parse(model.delivery_order_date.ToString().Split(" ")[0]).ToString("dd-MM-yyyy");
                     deliveryOrder.order_status = model.order_status;
                     deliveryOrder.expected_quantity = model.expected_quantity;
@@ -90,6 +90,13 @@ namespace Seminar_Retail_NhanHang.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult MappingTagAndProduct()
+        {
+
+
+            return View();
         }
     }
 }

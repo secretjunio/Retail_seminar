@@ -21,14 +21,14 @@ namespace API.Controllers
         [Route("GetListProductLine")]
         public IEnumerable<ProductLine> GetListProductLine()
         {
-            return _context.ProductLine.ToList();
+            return _context.ProductLines.ToList();
 
         }
         [HttpGet]
         [Route("GetOneProductLine")]
         public ProductLine getProductLine(string ProductLineID)
         {
-            return _context.ProductLine.Where(x => x.product_line_id == ProductLineID).FirstOrDefault();
+            return _context.ProductLines.Where(x => x.product_line_id == ProductLineID).FirstOrDefault();
         }
 
         [HttpPost]
@@ -36,35 +36,35 @@ namespace API.Controllers
         public IEnumerable<ProductLine> AddProductLine(ProductLine p)
         {
 
-            if (_context.ProductLine.ToList().Where(x => x.product_line_id == p.product_line_id).FirstOrDefault() == null)
+            if (_context.ProductLines.ToList().Where(x => x.product_line_id == p.product_line_id).FirstOrDefault() == null)
             {
-                    _context.ProductLine.Add(p);
+                    _context.ProductLines.Add(p);
                     _context.SaveChanges();
             }
 
-            return _context.ProductLine.ToList();
+            return _context.ProductLines.ToList();
         }
         [HttpDelete]
         [Route("DeleteProductLine")]
         public IEnumerable<ProductLine> DeleteProductLine(string ProductLineId)
         {
-            var tmpProductInstance = _context.ProductInstance.Where(x => x.product_line_id == ProductLineId).ToList();
-            var tmpProductLine = _context.ProductLine.Where(x => x.product_line_id == ProductLineId).FirstOrDefault();
+            var tmpProductInstance = _context.ProductInstances.Where(x => x.product_line_id == ProductLineId).ToList();
+            var tmpProductLine = _context.ProductLines.Where(x => x.product_line_id == ProductLineId).FirstOrDefault();
             if (tmpProductLine != null)
             {
-                _context.ProductLine.Remove(tmpProductLine);
+                _context.ProductLines.Remove(tmpProductLine);
                 if (tmpProductInstance != null)
                 {
                     foreach(var i in tmpProductInstance)
                     {
-                        _context.ProductInstance.Remove(i);
+                        _context.ProductInstances.Remove(i);
                     }
                     
                 }
             }
 
             _context.SaveChanges();
-            return _context.ProductLine.ToList();
+            return _context.ProductLines.ToList();
         }
     }
 }
