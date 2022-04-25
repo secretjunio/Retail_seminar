@@ -3,41 +3,61 @@
 <div class="container-fluid">
 
     <h1 class="text-lg-center">Ánh xạ RFID và sản phẩm</h1>
-    <form action="MappingTagAndProduct" method="post">
-          <table class="table table-bordered table-hover table-striped text-center" style="display:block;overflow:auto">
-        <thead class="thead-light" style="display:table;width:100%;table-layout:fixed; font-weight: bold;">
-            <tr>
-                <td>
-                    Mã RfId
-                </td>
-                <td>
-                    Tên Sản Phẩm
-                </td>
-            </tr>
-        </thead>
-        @foreach (var item in Model.tagReaders)
-        {
-            <tr>
-                <td>
-                    <input asp-for="@Model.ProductInstance.product_instance_id" value="@item.TagUii" disabled />
-                </td>
-                <td>
-                    <select asp-for="@Model.ProductInstance.product_line_id">
-                        @foreach (var pl in Model.ProductLines)
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped text-center" style="display:block;overflow:auto">
+           
+            <thead class="thead-light" style="display:table;width:100%;table-layout:fixed; font-weight: bold;">
+                <tr>
+                    <th>
+                        Mã RFID
+                    </th>
+                    <th>
+                        Tên sản phẩm
+                    </th>
+                    <th>
+                        Thao tác
+                    </th>
+                </tr>
+            </thead>
+            <tbody style="display:block;overflow:auto;max-height:420px;width:auto">
+                    @try
+                    {
+                        @foreach (var item in Model.tagReaders)
                         {
-                            <option value=@pl.product_line_id>
-                                @pl.name
-                            </option>
-                        }
+                             <form asp-action="MappingTagAndProduct" asp-controller="Home" method="post">
+                           
+                            @if (Model.ProductInstances.Where(x => x.product_instance_id == item.TagUii).FirstOrDefault() == null)
+                            {
+                            <tr style="display:table;width:100%;table-layout:fixed;height:100px">
+                                <td>
+                                        <input type="text" name="product_instance_id" value="@item.TagUii">
+                                </td>
+                                <td>
+                                    <select name="product_line_id">
+                                            @foreach (var pl in Model.ProductLines)
+                                            {
+                                            <option value=@pl.product_line_id>
+                                                    @pl.name
+                                            </option>
+                                            }
 
-                    </select>
-                </td>
-            </tr>
-        }
-        <tr style="width:100%">
-            <td class="align-content-center" style="display:table;width:100%" colspan="2"><input type="button" class="btn-success" value="Xác Nhận" /></td>
-        </tr>
-    </table>
-    </form>
-  
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-primary">Xác nhận</button>
+                                </td>
+                            </tr>
+                            }
+                            </form>
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+
+            </tbody>
+            
+        </table>
+    </div>
 </div>

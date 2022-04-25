@@ -43,15 +43,15 @@ namespace Seminar_Retail_NhanHang.Controllers
 
         public IActionResult CreateDeliveryOrder()
         {
-            return base.View(new Models.DeliveryOrderModel());
+            return View(new DeliveryOrderModel());
         }
 
         [HttpPost]
-        public IActionResult CreateDeliveryOrder(Models.DeliveryOrderModel d)
+        public IActionResult CreateDeliveryOrder(DeliveryOrderModel d)
         {
             if (ModelState.IsValid)
             {
-                var deliveryOrder = new API.Entities.DeliveryOrder();
+                var deliveryOrder = new DeliveryOrder();
                 deliveryOrder.delivery_order_id = Guid.NewGuid().ToString();
                 deliveryOrder.delivery_order_date = DateTime.Parse(d.delivery_order_date.ToString().Split(" ")[0]).ToString("dd-MM-yyyy");
                 deliveryOrder.order_status = d.order_status;
@@ -115,22 +115,29 @@ namespace Seminar_Retail_NhanHang.Controllers
 
             return View(m);
         }
+
         [HttpPost]
-        public void MappingTagAndProduct(ProductInstance p)
+        public IActionResult MappingTagAndProduct(ProductInstanceModel pm)
         {
             try
             {
-                if (p != null)
+                if (pm != null)
                 {
-                    _context.ProductInstances.Add(p);
-                    _context.SaveChanges();
+                    var tmp = new ProductInstance();
+                    tmp.product_instance_id = pm.product_instance_id;
+                    tmp.product_line_id = pm.product_line_id;
+                    _productInstanceRepository.createProductInstance(tmp);
+                    var toupdate = _productLineRepository.ProductLines().Where(x => x.product_line_id == tmp.product_line_id).FirstOrDefault();
+                    toupdate.stock = toupdate.stock+1;
+                    _productLineRepository.editProductLine(toupdate);
+                    return RedirectToAction("Index");
                 }
-            }catch(Exception ex)
+            }catch (Exception ex)
             {
 
             }
-            Response.Redirect("/Home/Index");
-
+            
+            return View();
         }
     }
 }

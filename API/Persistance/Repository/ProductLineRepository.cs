@@ -23,13 +23,8 @@ namespace API.Persistance.Repository
 
         public void editProductLine(ProductLine ProductLine)
         {
-            var toUpdate = _context.ProductLines.Where(x => x.product_line_id == ProductLine.product_line_id).FirstOrDefault();
-            ProductLine.product_line_id = toUpdate.product_line_id;
-            if (toUpdate != null)
-            {
-                _context.Entry(toUpdate).CurrentValues.SetValues(ProductLine);
+                _context.ProductLines.Update(ProductLine);
                 _context.SaveChanges();
-            }
         }
 
         public IEnumerable<ProductLine> ProductLines()
