@@ -5948,11 +5948,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Document\\Seminar\\Retail_seminar\\API\\API.csproj",
+      "projectUniqueName": "D:\\Document\\Retail_seminar\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\Document\\Seminar\\Retail_seminar\\API\\API.csproj",
+      "projectPath": "D:\\Document\\Retail_seminar\\API\\API.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Document\\Seminar\\Retail_seminar\\API\\obj\\",
+      "outputPath": "D:\\Document\\Retail_seminar\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

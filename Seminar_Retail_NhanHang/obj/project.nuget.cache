@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0R6/+uvNiiMgWEnMd97fNXZ+xpRED+xu0RUXrBRQ7sbGTZoP5iqHZCSttcWU7+Gu6aGFLx5bGNjqEV3rQBZ+xQ==",
+  "dgSpecHash": "BYmy3pydo08/Cedm6TcQTOkTA9JWpOS+azDE33J+W6BqPTbCArc3Wcp15B7UILR0S/WUw5K0jd/+cNTb9i0E7g==",
   "success": true,
-  "projectFilePath": "D:\\Document\\Seminar\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
+  "projectFilePath": "D:\\Document\\Retail_seminar\\Seminar_Retail_NhanHang\\Seminar_Retail_NhanHang.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
