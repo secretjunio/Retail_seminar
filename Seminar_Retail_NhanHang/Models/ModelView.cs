@@ -20,5 +20,6 @@ namespace Seminar_Retail_NhanHang.Models
         public DeliveryOrderModel DeliveryOrderModel { get; set; }
         public ProductInstanceModel ProductInstanceModel { get; set; }
         public IEnumerable<ProductInstanceModel> ProductInstanceModels { get; set; }
+        public DeliveryOrderDetailModel DeliveryOrderDetailModel { get; set; }
     }
 }

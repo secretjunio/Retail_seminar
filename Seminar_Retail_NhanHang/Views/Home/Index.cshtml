@@ -51,6 +51,12 @@
                                    class="btn btn-sm btn-danger">
                                    <i class="fa fa-trash"></i>
                                 </a>
+                                 <a asp-route-orderId="@i.delivery_order_id"
+                                   asp-action="DetailOrder"
+                                   asp-controller="Home"
+                                   class="btn btn-sm btn-danger">
+                                   Detail
+                                </a>
                             </td>
                         </tr>
                     }

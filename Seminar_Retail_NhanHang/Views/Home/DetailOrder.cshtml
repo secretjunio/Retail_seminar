@@ -1,63 +1,67 @@
 ﻿@model ModelView
 <div class="container-fluid dashboard-content">
     <div class="row">
-        <a class="btn btn-info mb-3" asp-controller="Home" asp-action="CreateDeliveryOrder">Tạo mới đơn hàng <i class="fa fa-plus-circle"></i></a>
-
+        <a class="btn btn-info mb-3" asp-route-orderId="@Model.DeliveryOrder.delivery_order_id" asp-action="AddProductToDetail" asp-controller="Home">Thêm sản phẩm <i class="fa fa-plus-circle"></i></a>
+       
         <table class="table table-bordered table-hover table-striped text-center" style="display:block;overflow:auto">
             <thead class="thead-light" style="display:table;width:100%;table-layout:fixed; font-weight: bold;">
                 <tr>
                     <th scope="col">Mã đơn hàng</th>
-                    <th scope="col">Ngày tạo đơn</th>
-                    <th scope="col">Trạng thái đơn hàng</th>
-                    <th scope="col">Số lượng hàng muốn nhập</th>
-                    <th scope="col">Số lượng hàng sau khi nhập</th>
+                    <th scope="col">Tên sản phẩm</th>
+                    <th scope="col">Số lượng</th>
+
                     <th scope="col">Thao tác</th>
                 </tr>
             </thead>
-                <tbody style="display:block;overflow:auto;max-height:420px;width:auto">
+            <tbody style="display:block;overflow:auto;max-height:420px;width:auto">
                 @{
-                    int n = 0;
-                    foreach (var i in @Model.DeliveryOrders)
+                    try
                     {
-                        n++;
-                        <tr id="page_@n" style="display:table;width:100%;table-layout:fixed;height:100px">
-                            <td>@i.delivery_order_id</td>
-                            <td>@i.delivery_order_date</td>
-                            @{
-                                if(i.order_status == "Processing"){
-                                    <td>Đang xử lý</td>
+                        foreach (var i in @Model.DeliveryOrderDetails)
+                        {<form>
+                             <tr style="display:table;width:100%;table-layout:fixed;height:100px">
+                                <td>
+                                <input type="hidden" name="delivery_order_id" value="@i.delivery_order_id"/>
+                                @i.delivery_order_id
+                                </td>
+                                @{
+                                    var tmp = @Model.ProductLines.Where(x => x.product_line_id == i.product_line_id).FirstOrDefault();
+                                    <td>
+                                    <input name="product_line_id" type="hidden" value="@tmp.product_line_id"/>
+                                    @tmp.name
+                                    </td>
                                 }
-                                if(i.order_status == "Processed"){
-                                    <td>Đã xử lý</td>
-                                }
-                            }
-                            <td>@i.expected_quantity</td>
-                            <td>@i.actual_quantity</td>
-                            <td>
-                                <a asp-route-id="@i.delivery_order_id"
-                                   asp-action="Edit"
-                                   asp-controller="Home"
-                                   class="btn btn-info btn-sm">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                                <a asp-route-id="@i.delivery_order_id"
-                                   asp-action="Delete"
-                                   asp-controller="Home"
-                                   onclick="return confirmRemove()"
-                                   class="btn btn-sm btn-danger">
-                                   <i class="fa fa-trash"></i>
-                                </a>
-                                <a asp-route-orderId="@i.delivery_order_id"
-                                   asp-action="DetailOrder"
-                                   asp-controller="Home"
-                                   class="btn btn-sm btn-danger">
-                                   Detail
-                                </a>
-                            </td>
-                        </tr>
+
+                                <td>
+                                <input value="@i.quantity" name="quantity" type="number">
+                                </td>
+                                <td>
+                                     <button type="submit"
+                                       asp-action="Refresh"
+                                       asp-controller="Home"
+                                       class="btn btn-sm btn-danger">
+                                        Reload
+                                    </button>
+                                    <a asp-route-orderId="@i.delivery_order_id" asp-route-lineId="@i.product_line_id"
+                                       asp-action="DeleteDetail"
+                                       asp-controller="Home"
+                                       onclick="return confirmRemove()"
+                                       class="btn btn-sm btn-danger">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+
+                                </td>
+                            </tr>
+                         </form>
+                           
+                        }
+
+                    }catch(Exception e)
+                    {
+                        
                     }
                 }
-            </tbody>          
+            </tbody>
         </table>
-</div>
+    </div>
 </div>

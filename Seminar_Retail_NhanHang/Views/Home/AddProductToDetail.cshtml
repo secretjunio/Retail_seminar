@@ -1,0 +1,40 @@
+﻿@model ModelView
+<table class="table table-bordered table-hover table-striped text-center" style="display:block;overflow:auto">
+    <thead class="thead-light" style="display:table;width:100%;table-layout:fixed; font-weight: bold;">
+        <tr>
+
+            <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Thao tác</th>
+        </tr>
+    </thead>
+    <tbody style="display:block;overflow:auto;max-height:420px;width:auto">
+        @{
+            try
+            {
+                foreach (var i in @Model.ProductLines)
+                {
+                    <form asp-action="AddProductToDetail" asp-controller="Home" method="post">
+                    <tr style="display:table;width:100%;table-layout:fixed;height:100px">
+                        <td hidden><input name="delivery_order_id" value="@Model.DeliveryOrder.delivery_order_id" /></td>
+                        <td>
+                        <input name="product_line_id" type="hidden" value="@i.product_line_id"/>
+                        <label >@i.name</label>
+                        </td>
+                        <td><input name="quantity" type="number" /></td>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Thêm</button>
+                        </td>
+                    </tr>
+                    </form>
+
+                }
+
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+    </tbody>
+</table>

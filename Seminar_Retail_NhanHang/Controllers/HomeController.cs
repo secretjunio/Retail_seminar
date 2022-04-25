@@ -139,5 +139,103 @@ namespace Seminar_Retail_NhanHang.Controllers
             
             return View();
         }
+
+        public IActionResult DetailOrder(string orderId)
+        {
+            ModelView mv = new ModelView
+            {
+                DeliveryOrder=_deliveryOrderRepository.FindById(orderId),
+                DeliveryOrderDetails = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == orderId).ToList(),
+                ProductLines = _productLineRepository.ProductLines()
+            };
+            return View(mv);
+        }
+
+        public IActionResult AddProductToDetail(string orderId)
+        {
+
+            ModelView mv = new ModelView
+            {
+                DeliveryOrder = _deliveryOrderRepository.FindById(orderId),
+                ProductLines = _productLineRepository.ProductLines()
+            };
+
+            return View(mv);
+        }
+        [HttpPost]
+        public IActionResult AddProductToDetail(DeliveryOrderDetailModel d)
+        {
+            var tmp = new DeliveryOrderDetail();
+            var a = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.product_line_id == d.product_line_id&&x.delivery_order_id==d.delivery_order_id).FirstOrDefault();
+            if (d.quantity > 0)
+            {
+                if (a != null)
+                {
+                    tmp.delivery_order_id = a.delivery_order_id;
+                    tmp.product_line_id = a.product_line_id;
+                    tmp.quantity = a.quantity + d.quantity;
+                    _deliveryOrderDetailRepository.editDeliveryOrderDetail(tmp);
+                }
+                else
+                {
+                    tmp.delivery_order_id = d.delivery_order_id;
+                    tmp.product_line_id = d.product_line_id;
+                    tmp.quantity = d.quantity;
+                    _deliveryOrderDetailRepository.createDeliveryOrderDetail(tmp);
+                }
+                var orderTemp = _deliveryOrderRepository.FindById(d.delivery_order_id);
+                orderTemp.actual_quantity = orderTemp.actual_quantity+d.quantity;
+                _deliveryOrderRepository.editDeliveryOrder(orderTemp);
+            }
+        
+            return RedirectToAction("Index");
+        }
+        public IActionResult EditDetailOrder(string orderId,string lineId)
+        {
+            var tmp = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == orderId && x.product_line_id == lineId).FirstOrDefault();
+            ModelView mv = new ModelView
+            {
+                DeliveryOrderDetail = tmp,
+                ProductLines = _productLineRepository.ProductLines()
+            };
+            return View(tmp);
+        }
+        [HttpPost]
+        public IActionResult EditDetailOrder(DeliveryOrderDetailModel d)
+        {
+            var temp = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == d.delivery_order_id&&x.product_line_id==d.product_line_id).FirstOrDefault();
+           _deliveryOrderDetailRepository.editDeliveryOrderDetail(temp);
+            return View();
+        }
+
+        public void DeleteDetail(string orderId,string lineId)
+        {
+            var orderTemp = _deliveryOrderRepository.FindById(orderId);
+            var deliveryOrder = _deliveryOrderDetailRepository.FindById(orderId, lineId);
+            orderTemp.actual_quantity = orderTemp.actual_quantity - deliveryOrder.quantity;
+            _deliveryOrderDetailRepository.removeDeliveryOrderDetail(orderId, lineId);
+            
+            
+            
+            if (orderTemp.actual_quantity < 0)
+            {
+                orderTemp.actual_quantity = 0;
+            }
+            _deliveryOrderRepository.editDeliveryOrder(orderTemp);
+            Response.Redirect("/Home/Index");
+        }
+        [HttpPost]
+        public void Refresh(DeliveryOrderDetailModel d)
+        {
+            var newquantity=0;
+            var orderTemp = _deliveryOrderRepository.FindById(d.delivery_order_id);
+            var deliveryOrder = _deliveryOrderDetailRepository.FindById(d.delivery_order_id, d.product_line_id);
+            newquantity = (-deliveryOrder.quantity) + d.quantity;
+            orderTemp.actual_quantity = orderTemp.actual_quantity + newquantity;
+            deliveryOrder.quantity = d.quantity;
+            
+            _deliveryOrderDetailRepository.editDeliveryOrderDetail(deliveryOrder);
+            Response.Redirect("/Home/Index");
+        }
     }
 }

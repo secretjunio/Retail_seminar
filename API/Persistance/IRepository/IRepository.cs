@@ -41,10 +41,10 @@ namespace API.Persistance.IRepository
     }
     public interface IDeliveryOrderDetailRepository
     {
-        DeliveryOrderDetail FindById(string Id);
+        DeliveryOrderDetail FindById(string Id,string lineId);
         IEnumerable<DeliveryOrderDetail> DeliveryOrderDetails();
         void createDeliveryOrderDetail(DeliveryOrderDetail deliveryOrderDetail);
         void editDeliveryOrderDetail(DeliveryOrderDetail deliveryOrderDetail);
-        void removeDeliveryOrderDetail(string Id);
+        void removeDeliveryOrderDetail(string Id,string lineId);
     }
 }

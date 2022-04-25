@@ -166,3 +166,4 @@ D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Release\net5.0\refint\Sem
 D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Release\net5.0\Seminar_Retail_NhanHang.pdb
 D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Release\net5.0\Seminar_Retail_NhanHang.genruntimeconfig.cache
 D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Release\net5.0\ref\Seminar_Retail_NhanHang.dll
+D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Release\net5.0\Razor\Views\Home\AddProductToDetail.cshtml.g.cs

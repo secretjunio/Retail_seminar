@@ -37,14 +37,14 @@ namespace API.Persistance.Repository
             return _context.DeliveryOrderDetails.ToList();
         }
 
-        public DeliveryOrderDetail FindById(string Id)
+        public DeliveryOrderDetail FindById(string Id,string lineId)
         {
-            return _context.DeliveryOrderDetails.Find(Id);
+            return _context.DeliveryOrderDetails.Where(x => x.delivery_order_id == Id && x.product_line_id == lineId).FirstOrDefault();
         }
 
-        public void removeDeliveryOrderDetail(string Id)
+        public void removeDeliveryOrderDetail(string Id,string lineId)
         {
-            _context.DeliveryOrderDetails.Remove(_context.DeliveryOrderDetails.Find(Id));
+            _context.DeliveryOrderDetails.Remove(_context.DeliveryOrderDetails.Where(x=>x.delivery_order_id==Id&&x.product_line_id==lineId).FirstOrDefault());
             _context.SaveChanges();
         }
     }
