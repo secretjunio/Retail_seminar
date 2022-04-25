@@ -55,15 +55,11 @@ namespace API.Controllers
         [Route("DeleteProductInstance")]
         public IEnumerable<ProductInstance> DeleteProductInstance(string productInstanceId)
         {
-            var tmpDeliveryOrderDetail = _context.DeliveryOrderDetails.Where(x => x.product_instance_id == productInstanceId).FirstOrDefault();
+           
             var tmpProductInstance = _context.ProductInstances.Where(x => x.product_instance_id == productInstanceId).FirstOrDefault();
             if (tmpProductInstance != null)
             {
                 _context.ProductInstances.Remove(tmpProductInstance);
-                if (tmpDeliveryOrderDetail != null)
-                {
-                    _context.DeliveryOrderDetails.Remove(tmpDeliveryOrderDetail);
-                }
             }
 
             _context.SaveChanges();

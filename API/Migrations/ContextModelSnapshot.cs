@@ -47,16 +47,16 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Entities.DeliveryOrderDetail", b =>
                 {
-                    b.Property<string>("product_instance_id")
+                    b.Property<string>("product_line_id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("delivery_order_id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<bool>("is_checked")
-                        .HasColumnType("bit");
+                    b.Property<int>("quantity")
+                        .HasColumnType("int");
 
-                    b.HasKey("product_instance_id", "delivery_order_id");
+                    b.HasKey("product_line_id", "delivery_order_id");
 
                     b.ToTable("DeliveryOrderDetails");
                 });

@@ -18,7 +18,7 @@ namespace API
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DeliveryOrderDetail>()
-                .HasKey(c => new { c.product_instance_id, c.delivery_order_id });
+                .HasKey(c => new { c.product_line_id, c.delivery_order_id });
 
             modelBuilder.Entity<ProductInstance>()
                 .HasKey(c => new { c.product_instance_id, c.product_line_id });

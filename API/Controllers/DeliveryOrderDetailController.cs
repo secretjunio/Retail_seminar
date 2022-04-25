@@ -40,11 +40,11 @@ namespace API.Controllers
             if (d.delivery_order_id != "")
             {
                 DeliveryOrderDetail toUpdate = _context.DeliveryOrderDetails
-                  .Where(p => p.delivery_order_id == d.delivery_order_id && p.product_instance_id == d.product_instance_id).FirstOrDefault();
+                  .Where(p => p.delivery_order_id == d.delivery_order_id && p.product_line_id == d.product_line_id).FirstOrDefault();
                 DeliveryOrderDetail tmp = new DeliveryOrderDetail();
                 tmp.delivery_order_id = toUpdate.delivery_order_id;//primary key can not change
-                tmp.product_instance_id = toUpdate.product_instance_id;
-                tmp.is_checked = d.is_checked;
+                tmp.product_line_id = toUpdate.product_line_id;
+                tmp.quantity = d.quantity;
                 if (toUpdate != null)
                 {
                     _context.Entry(toUpdate).CurrentValues.SetValues(tmp);
@@ -57,14 +57,14 @@ namespace API.Controllers
         public IEnumerable<DeliveryOrderDetail> AddDeliveryOrderDetail(DeliveryOrderDetail d)
         {
 
-            if (_context.DeliveryOrderDetails.ToList().Where(x => x.delivery_order_id == d.delivery_order_id && x.product_instance_id == d.product_instance_id).FirstOrDefault() == null)
+            if (_context.DeliveryOrderDetails.ToList().Where(x => x.delivery_order_id == d.delivery_order_id && x.product_line_id == d.product_line_id).FirstOrDefault() == null)
             {
                 if (_context.DeliveryOrders.Where(x => x.delivery_order_id == d.delivery_order_id).FirstOrDefault() != null)
                 {
                     DeliveryOrderDetail tmp = new DeliveryOrderDetail();
                     tmp.delivery_order_id = d.delivery_order_id;
-                    tmp.product_instance_id = d.product_instance_id;
-                    tmp.is_checked = d.is_checked;
+                    tmp.product_line_id = d.product_line_id;
+                    tmp.quantity = d.quantity;
 
                     _context.DeliveryOrderDetails.Add(tmp);
                     _context.SaveChanges();
@@ -82,7 +82,7 @@ namespace API.Controllers
         public IEnumerable<DeliveryOrderDetail> DeleteDeliveryOrderDetail(string DeliveryOrderDetail, string productInstanceId)
         {
 
-            var tmpDeliveryOrderDetail = _context.DeliveryOrderDetails.Where(x => x.delivery_order_id == DeliveryOrderDetail && x.product_instance_id == productInstanceId).FirstOrDefault();
+            var tmpDeliveryOrderDetail = _context.DeliveryOrderDetails.Where(x => x.delivery_order_id == DeliveryOrderDetail && x.product_line_id == productInstanceId).FirstOrDefault();
             if (tmpDeliveryOrderDetail != null)
             {
                 _context.DeliveryOrderDetails.Remove(tmpDeliveryOrderDetail);

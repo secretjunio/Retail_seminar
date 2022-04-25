@@ -9,7 +9,7 @@ namespace API.Entities
     public class DeliveryOrderDetail
     {
         public string delivery_order_id { get; set; }
-        public string product_instance_id { get; set; }
-        public bool is_checked { get; set; }
+        public string product_line_id { get; set; }
+        public int quantity{ get; set; }
     }
 }
