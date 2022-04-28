@@ -408,3 +408,4 @@ D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\refint\Semin
 D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.pdb
 D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.genruntimeconfig.cache
 D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\ref\Seminar_Retail_NhanHang.dll
+D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Home\CheckInProduct.cshtml.g.cs

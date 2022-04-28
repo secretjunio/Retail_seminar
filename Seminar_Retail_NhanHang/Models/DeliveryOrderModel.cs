@@ -19,8 +19,8 @@ namespace Seminar_Retail_NhanHang.Models
         [Display(Name = "Trạng thái đơn hàng")]
         public string order_status { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng điền số lượng sản phẩm mong muốn nhập")]
-        [Range(10, int.MaxValue, ErrorMessage = "Vui lòng nhập số lượng từ 10 trở lên")]
+        //[Required(ErrorMessage = "Vui lòng điền số lượng sản phẩm mong muốn nhập")]
+        //[Range(10, int.MaxValue, ErrorMessage = "Vui lòng nhập số lượng từ 10 trở lên")]
         [Display(Name = "Số lượng sản phẩm mong muốn nhập")]
         public int expected_quantity { get; set; }
 

@@ -23,13 +23,9 @@ namespace API.Persistance.Repository
 
         public void editProductInstance(ProductInstance ProductInstance)
         {
-            var toUpdate = _context.ProductInstances.Where(x => x.product_instance_id == ProductInstance.product_instance_id).FirstOrDefault();
-            ProductInstance.product_instance_id = toUpdate.product_instance_id;
-            if (toUpdate != null)
-            {
-                _context.Entry(toUpdate).CurrentValues.SetValues(ProductInstance);
+          
+                _context.ProductInstances.Update(ProductInstance);
                 _context.SaveChanges();
-            }
         }
 
         public IEnumerable<ProductInstance> ProductInstances()

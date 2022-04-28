@@ -21,12 +21,12 @@ namespace Seminar_Retail_NhanHang.Controllers
         private readonly IProductInstanceRepository _productInstanceRepository;
         private readonly IProductLineRepository _productLineRepository;
         public HomeController(Context context, IDeliveryOrderRepository deliveryOrderRepository,
-                            IProductInstanceRepository productInstanceRepository,ITagReaderRepository tagReaderRepository,
-                            IProductLineRepository productLineRepository,IDeliveryOrderDetailRepository deliveryOrderDetailRepository)
+                            IProductInstanceRepository productInstanceRepository, ITagReaderRepository tagReaderRepository,
+                            IProductLineRepository productLineRepository, IDeliveryOrderDetailRepository deliveryOrderDetailRepository)
         {
             _context = context;
             _deliveryOrderRepository = deliveryOrderRepository;
-            _deliveryOrderDetailRepository=deliveryOrderDetailRepository;
+            _deliveryOrderDetailRepository = deliveryOrderDetailRepository;
             _tagReaderRepository = tagReaderRepository;
             _productInstanceRepository = productInstanceRepository;
             _productLineRepository = productLineRepository;
@@ -36,8 +36,8 @@ namespace Seminar_Retail_NhanHang.Controllers
         {
             ModelView m = new ModelView
             {
-                DeliveryOrders = _deliveryOrderRepository.DeliveryOrders().OrderByDescending(m=>m.AutoID)
-             };
+                DeliveryOrders = _deliveryOrderRepository.DeliveryOrders().OrderByDescending(m => m.AutoID)
+            };
             return View(m);
         }
 
@@ -55,7 +55,7 @@ namespace Seminar_Retail_NhanHang.Controllers
                 deliveryOrder.delivery_order_id = Guid.NewGuid().ToString();
                 deliveryOrder.delivery_order_date = DateTime.Parse(d.delivery_order_date.ToString().Split(" ")[0]).ToString("dd-MM-yyyy");
                 deliveryOrder.order_status = d.order_status;
-                deliveryOrder.expected_quantity = d.expected_quantity;       
+                //deliveryOrder.expected_quantity = d.expected_quantity;       
                 _deliveryOrderRepository.createDeliveryOrder(deliveryOrder);
                 return RedirectToAction("Index");
             }
@@ -64,7 +64,8 @@ namespace Seminar_Retail_NhanHang.Controllers
 
         public IActionResult Edit(string id)
         {
-            ModelView m = new ModelView {
+            ModelView m = new ModelView
+            {
                 DeliveryOrder = _deliveryOrderRepository.FindById(id),
                 DeliveryOrders = _deliveryOrderRepository.DeliveryOrders()
             };
@@ -128,15 +129,16 @@ namespace Seminar_Retail_NhanHang.Controllers
                     tmp.product_line_id = pm.product_line_id;
                     _productInstanceRepository.createProductInstance(tmp);
                     var toupdate = _productLineRepository.ProductLines().Where(x => x.product_line_id == tmp.product_line_id).FirstOrDefault();
-                    toupdate.stock = toupdate.stock+1;
+                    toupdate.stock = toupdate.stock + 1;
                     _productLineRepository.editProductLine(toupdate);
                     return RedirectToAction("Index");
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
 
             }
-            
+
             return View();
         }
 
@@ -144,7 +146,7 @@ namespace Seminar_Retail_NhanHang.Controllers
         {
             ModelView mv = new ModelView
             {
-                DeliveryOrder=_deliveryOrderRepository.FindById(orderId),
+                DeliveryOrder = _deliveryOrderRepository.FindById(orderId),
                 DeliveryOrderDetails = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == orderId).ToList(),
                 ProductLines = _productLineRepository.ProductLines()
             };
@@ -166,7 +168,7 @@ namespace Seminar_Retail_NhanHang.Controllers
         public IActionResult AddProductToDetail(DeliveryOrderDetailModel d)
         {
             var tmp = new DeliveryOrderDetail();
-            var a = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.product_line_id == d.product_line_id&&x.delivery_order_id==d.delivery_order_id).FirstOrDefault();
+            var a = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.product_line_id == d.product_line_id && x.delivery_order_id == d.delivery_order_id).FirstOrDefault();
             if (d.quantity > 0)
             {
                 if (a != null)
@@ -184,42 +186,46 @@ namespace Seminar_Retail_NhanHang.Controllers
                     _deliveryOrderDetailRepository.createDeliveryOrderDetail(tmp);
                 }
                 var orderTemp = _deliveryOrderRepository.FindById(d.delivery_order_id);
-                orderTemp.actual_quantity = orderTemp.actual_quantity+d.quantity;
+                orderTemp.expected_quantity = orderTemp.expected_quantity + d.quantity;
                 _deliveryOrderRepository.editDeliveryOrder(orderTemp);
             }
-        
+
             return RedirectToAction("Index");
         }
-        public IActionResult EditDetailOrder(string orderId,string lineId)
-        {
-            var tmp = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == orderId && x.product_line_id == lineId).FirstOrDefault();
-            ModelView mv = new ModelView
-            {
-                DeliveryOrderDetail = tmp,
-                ProductLines = _productLineRepository.ProductLines()
-            };
-            return View(tmp);
-        }
-        [HttpPost]
-        public IActionResult EditDetailOrder(DeliveryOrderDetailModel d)
-        {
-            var temp = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == d.delivery_order_id&&x.product_line_id==d.product_line_id).FirstOrDefault();
-           _deliveryOrderDetailRepository.editDeliveryOrderDetail(temp);
-            return View();
-        }
+        //public IActionResult EditDetailOrder(string orderId, string lineId)
+        //{
+        //    var tmp = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == orderId && x.product_line_id == lineId).FirstOrDefault();
+        //    ModelView mv = new ModelView
+        //    {
+        //        DeliveryOrderDetail = tmp,
+        //        ProductLines = _productLineRepository.ProductLines()
+        //    };
+        //    return View(tmp);
+        //}
+        //[HttpPost]
+        //public IActionResult EditDetailOrder(DeliveryOrderDetailModel d)
+        //{
+        //    var temp = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == d.delivery_order_id && x.product_line_id == d.product_line_id).FirstOrDefault();
+        //    var quantity = d.quantity - temp.quantity;
+        //    _deliveryOrderDetailRepository.editDeliveryOrderDetail(temp);
+        //    var expected = _deliveryOrderRepository.DeliveryOrders().Where(x => x.delivery_order_id == d.delivery_order_id).FirstOrDefault();
+        //    expected.expected_quantity = expected.expected_quantity + quantity;
+        //    _deliveryOrderRepository.editDeliveryOrder(expected);
+        //    return View();
+        //}
 
-        public void DeleteDetail(string orderId,string lineId)
+        public void DeleteDetail(string orderId, string lineId)
         {
             var orderTemp = _deliveryOrderRepository.FindById(orderId);
             var deliveryOrder = _deliveryOrderDetailRepository.FindById(orderId, lineId);
-            orderTemp.actual_quantity = orderTemp.actual_quantity - deliveryOrder.quantity;
+            orderTemp.expected_quantity = orderTemp.expected_quantity - deliveryOrder.quantity;
             _deliveryOrderDetailRepository.removeDeliveryOrderDetail(orderId, lineId);
-            
-            
-            
-            if (orderTemp.actual_quantity < 0)
+
+
+
+            if (orderTemp.expected_quantity < 0)
             {
-                orderTemp.actual_quantity = 0;
+                orderTemp.expected_quantity = 0;
             }
             _deliveryOrderRepository.editDeliveryOrder(orderTemp);
             Response.Redirect("/Home/Index");
@@ -227,15 +233,30 @@ namespace Seminar_Retail_NhanHang.Controllers
         [HttpPost]
         public void Refresh(DeliveryOrderDetailModel d)
         {
-            var newquantity=0;
+            var newquantity = 0;
             var orderTemp = _deliveryOrderRepository.FindById(d.delivery_order_id);
             var deliveryOrder = _deliveryOrderDetailRepository.FindById(d.delivery_order_id, d.product_line_id);
             newquantity = (-deliveryOrder.quantity) + d.quantity;
-            orderTemp.actual_quantity = orderTemp.actual_quantity + newquantity;
+            orderTemp.expected_quantity = orderTemp.expected_quantity + newquantity;
             deliveryOrder.quantity = d.quantity;
-            
+
             _deliveryOrderDetailRepository.editDeliveryOrderDetail(deliveryOrder);
             Response.Redirect("/Home/Index");
+        }
+
+        //hàm này sẽ là hàm kiểm tra sản phẩm cung cấp có đủ hay không, tạo nút xuất excel trong này luôn
+        //bảng productInstance là bảng sản phẩm được cung cấp, bảng deliveryOrderDetail là bảng cho biết sản phẩm mình cần cung cấp
+        //lấy 2 bảng này để so sánh
+        public IActionResult CheckProduct()
+        {
+            ModelView mv = new ModelView
+            {
+                DeliveryOrders = _deliveryOrderRepository.DeliveryOrders(),
+                DeliveryOrderDetails = _deliveryOrderDetailRepository.DeliveryOrderDetails(),
+                ProductInstances = _productInstanceRepository.ProductInstances(),
+                ProductLines = _productLineRepository.ProductLines(),
+            };
+            return View(mv);
         }
     }
 }

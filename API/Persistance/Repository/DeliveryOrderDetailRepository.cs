@@ -23,13 +23,9 @@ namespace API.Persistance.Repository
 
         public void editDeliveryOrderDetail(DeliveryOrderDetail DeliveryOrderDetail)
         {
-            var toUpdate = _context.DeliveryOrderDetails.Where(x => x.delivery_order_id == DeliveryOrderDetail.delivery_order_id).FirstOrDefault();
-            DeliveryOrderDetail.delivery_order_id = toUpdate.delivery_order_id;
-            if (toUpdate != null)
-            {
-                _context.Entry(toUpdate).CurrentValues.SetValues(DeliveryOrderDetail);
-                _context.SaveChanges();
-            }
+
+            _context.DeliveryOrderDetails.Update(DeliveryOrderDetail);
+            _context.SaveChanges();
         }
 
         public IEnumerable<DeliveryOrderDetail> DeliveryOrderDetails()
@@ -37,14 +33,14 @@ namespace API.Persistance.Repository
             return _context.DeliveryOrderDetails.ToList();
         }
 
-        public DeliveryOrderDetail FindById(string Id,string lineId)
+        public DeliveryOrderDetail FindById(string Id, string lineId)
         {
             return _context.DeliveryOrderDetails.Where(x => x.delivery_order_id == Id && x.product_line_id == lineId).FirstOrDefault();
         }
 
-        public void removeDeliveryOrderDetail(string Id,string lineId)
+        public void removeDeliveryOrderDetail(string Id, string lineId)
         {
-            _context.DeliveryOrderDetails.Remove(_context.DeliveryOrderDetails.Where(x=>x.delivery_order_id==Id&&x.product_line_id==lineId).FirstOrDefault());
+            _context.DeliveryOrderDetails.Remove(_context.DeliveryOrderDetails.Where(x => x.delivery_order_id == Id && x.product_line_id == lineId).FirstOrDefault());
             _context.SaveChanges();
         }
     }

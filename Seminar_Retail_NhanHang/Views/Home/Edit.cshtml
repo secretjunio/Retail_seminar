@@ -40,13 +40,14 @@
                 </select>
                 <span asp-validation-for="@Model.DOM.order_status" class="text-danger"></span>
             </div>
-
-            <div class="form-group">
+            <!--
+             <div class="form-group">
                 <label class="font-weight-bold" asp-for="@Model.DOM.expected_quantity"></label>
                 <input type="text" name="expected_quantity" value="@Model.DeliveryOrder.expected_quantity" class="form-control" />
                 <span asp-validation-for="DOM.expected_quantity" class="text-danger"></span>
             </div>
-
+            -->
+           
             <div class="form-group">
                 <label class="font-weight-bold" asp-for="@Model.DOM.actual_quantity"></label>
                 <input type="text" name="actual_quantity" value="@Model.DeliveryOrder.actual_quantity" class="form-control" />
