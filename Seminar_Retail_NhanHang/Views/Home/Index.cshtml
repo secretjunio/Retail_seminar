@@ -14,7 +14,6 @@
                     <th scope="col">Ngày tạo đơn</th>
                     <th scope="col">Trạng thái đơn hàng</th>
                     <th scope="col">Số lượng hàng muốn nhập</th>
-                    <th scope="col">Số lượng hàng sau khi nhập</th>
                     <th scope="col">Thao tác</th>
                 </tr>
             </thead>
@@ -36,7 +35,7 @@
                                 }
                             }
                             <td>@i.expected_quantity</td>
-                            <td>@i.actual_quantity</td>
+                            
                             <td>
                                 <a asp-route-id="@i.delivery_order_id"
                                    asp-action="Edit"
@@ -56,6 +55,12 @@
                                    asp-controller="Home"
                                    class="btn btn-sm btn-danger">
                                    Detail
+                                </a>
+                                 <a style="margin-top:2px" asp-route-orderId="@i.delivery_order_id"
+                                   asp-action="CheckProduct"
+                                   asp-controller="Home"
+                                   class="btn btn-sm btn-info">
+                                   Báo cáo đơn hàng
                                 </a>
                             </td>
                         </tr>

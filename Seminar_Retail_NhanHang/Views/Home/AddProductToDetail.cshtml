@@ -1,4 +1,7 @@
 ﻿@model ModelView
+<div class="align-content-lg-start">
+    <a asp-route-orderId="@Model.DeliveryOrder.delivery_order_id" asp-action="DetailOrder" asp-controller="Home" class=btn btn-primary>Quay lại</a>
+</div>
 <table class="table table-bordered table-hover table-striped text-center" style="display:block;overflow:auto">
     <thead class="thead-light" style="display:table;width:100%;table-layout:fixed; font-weight: bold;">
         <tr>

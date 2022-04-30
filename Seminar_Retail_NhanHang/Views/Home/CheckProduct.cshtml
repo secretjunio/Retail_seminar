@@ -1,1 +1,125 @@
-﻿
+﻿@model ModelView
+
+<div class="align-content-lg-between">
+    <h1>Báo cáo Hàng nhận</h1>
+</div>
+<div>
+    <a style="float:left;" class="align-content-start btn btn-info" asp-action="Index" asp-controller="Home">Quay lại</a><a style="float:right;" class="btn btn-info align-content-end" asp-action="ExportExcel" asp-controller="Home">Xuất Excel</a>
+</div>
+<table class="table table-bordered table-hover table-striped text-center" style="display:block;overflow:auto">
+    <thead class="thead-light" style="display:table;width:100%;table-layout:fixed; font-weight: bold;">
+        <tr>
+
+            <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Đơn giá</th>
+            <th scope="col">số lượng mong muốn</th>
+            <th scope="col">Số lượng nhận được</th>
+            <th scope="col">Kết quả</th>
+        </tr>
+    </thead>
+    <tbody style="display:block;overflow:auto;max-height:500px;width:auto">
+
+        @{
+            try
+            {
+                float tong = 0;
+                float tongchi = 0;
+                float numpro1 = 0;
+                float numpro2 = 0;
+                foreach (var i in Model.DeliveryOrderDetails)
+                {
+                    var prod = Model.ProductLines.Where(x => x.product_line_id == i.product_line_id).FirstOrDefault();
+
+                    <tr style="display:table;width:100%;table-layout:fixed;height:100px">
+                        <td>@prod.name</td>
+                        <td>
+                            @prod.price
+                            @{
+                                tong = (float)tong + (float)prod.price * (float)i.quantity;
+                                tongchi = (float)tongchi + (float)prod.stock * (float)prod.price;
+                                numpro1 = numpro1 + i.quantity;
+                                numpro2 = numpro2 + prod.stock;
+                            }
+                        </td>
+                        <td>@i.quantity</td>
+                        <td>
+                            @prod.stock
+                        </td>
+                        <td>
+                            @{
+                                var num = i.quantity - prod.stock;
+                                if (num > 0)
+                                {
+                                    <p>hàng nhập thiếu @num</p>
+                                }
+                                else if (num == 0)
+                                {
+                                    <p>đã nhập đủ số luọng</p>
+                                }
+                                else
+                                {
+                                    <p>nhập dư số lượng @(-num)</p>
+                                }
+
+
+                            }
+
+                        </td>
+                    </tr>
+                }
+                <tr style="display:table;width:100%;table-layout:fixed;height:100px">
+
+                    <td>
+                        Tổng chi dự kiến
+                    </td>
+
+                     <td>
+                        @tong
+                    </td>
+
+                    <td colspan="2">
+                     tổng sản phẩm cần nhập<br>
+                     @numpro1
+                    </td>
+                    <td></td>
+                </tr>
+                <tr style="display:table;width:100%;table-layout:fixed;height:100px">
+                    <td >
+                        Tổng chi thực tế
+                    </td>
+
+                    <td>
+                        @tongchi
+                    </td>
+
+                    <td colspan="2">
+                    tổng sản phẩm nhận được<br>
+                    @numpro2
+                    </td>
+
+                    <td rowspan="2">
+                                @{
+                                    if (tongchi > tong)
+                                    {
+                                <p>tổng chi phí vượt quá mong đợi</p>
+                                    }
+                                    else if (tongchi == tong)
+                                    {
+                                <p>tổng chi phí như dự đoán</p>
+                                    }
+
+                                    {
+                                <p>Tổng chi phí thấp hơn dự đoán</p>
+                                    }
+                                }
+                    </td>
+                </tr>
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+    </tbody>
+</table>

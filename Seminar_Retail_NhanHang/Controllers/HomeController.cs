@@ -192,28 +192,7 @@ namespace Seminar_Retail_NhanHang.Controllers
 
             return RedirectToAction("Index");
         }
-        //public IActionResult EditDetailOrder(string orderId, string lineId)
-        //{
-        //    var tmp = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == orderId && x.product_line_id == lineId).FirstOrDefault();
-        //    ModelView mv = new ModelView
-        //    {
-        //        DeliveryOrderDetail = tmp,
-        //        ProductLines = _productLineRepository.ProductLines()
-        //    };
-        //    return View(tmp);
-        //}
-        //[HttpPost]
-        //public IActionResult EditDetailOrder(DeliveryOrderDetailModel d)
-        //{
-        //    var temp = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == d.delivery_order_id && x.product_line_id == d.product_line_id).FirstOrDefault();
-        //    var quantity = d.quantity - temp.quantity;
-        //    _deliveryOrderDetailRepository.editDeliveryOrderDetail(temp);
-        //    var expected = _deliveryOrderRepository.DeliveryOrders().Where(x => x.delivery_order_id == d.delivery_order_id).FirstOrDefault();
-        //    expected.expected_quantity = expected.expected_quantity + quantity;
-        //    _deliveryOrderRepository.editDeliveryOrder(expected);
-        //    return View();
-        //}
-
+       
         public void DeleteDetail(string orderId, string lineId)
         {
             var orderTemp = _deliveryOrderRepository.FindById(orderId);
@@ -243,16 +222,16 @@ namespace Seminar_Retail_NhanHang.Controllers
             _deliveryOrderDetailRepository.editDeliveryOrderDetail(deliveryOrder);
             Response.Redirect("/Home/Index");
         }
-
+       
         //hàm này sẽ là hàm kiểm tra sản phẩm cung cấp có đủ hay không, tạo nút xuất excel trong này luôn
         //bảng productInstance là bảng sản phẩm được cung cấp, bảng deliveryOrderDetail là bảng cho biết sản phẩm mình cần cung cấp
         //lấy 2 bảng này để so sánh
-        public IActionResult CheckProduct()
+        public IActionResult CheckProduct(string orderId)
         {
             ModelView mv = new ModelView
             {
-                DeliveryOrders = _deliveryOrderRepository.DeliveryOrders(),
-                DeliveryOrderDetails = _deliveryOrderDetailRepository.DeliveryOrderDetails(),
+                DeliveryOrder = _deliveryOrderRepository.FindById(orderId),
+                DeliveryOrderDetails = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x=>x.delivery_order_id==orderId).ToList(),
                 ProductInstances = _productInstanceRepository.ProductInstances(),
                 ProductLines = _productLineRepository.ProductLines(),
             };
