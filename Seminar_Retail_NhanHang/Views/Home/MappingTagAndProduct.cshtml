@@ -30,21 +30,22 @@
                             {
                             <tr style="display:table;width:100%;table-layout:fixed;height:100px">
                                 <td>
-                                        <input type="text" name="product_instance_id" value="@item.TagUii">
+                                    <label>@item.TagUii</label>
+                                    <input type="hidden" name="product_instance_id" value="@item.TagUii">
                                 </td>
                                 <td>
-                                    <select name="product_line_id">
-                                            @foreach (var pl in Model.ProductLines)
-                                            {
+                                    <select class="form-select form-select-lg mb-3" name="product_line_id">
+                                        @foreach (var pl in Model.ProductLines)
+                                        {
                                             <option value=@pl.product_line_id>
-                                                    @pl.name
+                                                @pl.name
                                             </option>
-                                            }
+                                        }
 
                                     </select>
                                 </td>
                                 <td>
-                                    <button type="submit" class="btn btn-primary">Xác nhận</button>
+                                    <button type="submit" class="btn btn-success">Xác nhận</button>
                                 </td>
                             </tr>
                             }

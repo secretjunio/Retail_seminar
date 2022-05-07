@@ -1,8 +1,11 @@
 ﻿@model ModelView
 <div class="align-content-lg-start">
-    <a asp-route-orderId="@Model.DeliveryOrder.delivery_order_id" asp-action="DetailOrder" asp-controller="Home" class=btn btn-primary>Quay lại</a>
+    <a asp-route-orderId="@Model.DeliveryOrder.delivery_order_id" asp-action="DetailOrder" asp-controller="Home" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+</svg> Quay lại</a>
 </div>
-<table class="table table-bordered table-hover table-striped text-center" style="display:block;overflow:auto">
+<br />
+<table class="table table-bordered table-hover text-center" style="display:block;overflow:auto">
     <thead class="thead-light" style="display:table;width:100%;table-layout:fixed; font-weight: bold;">
         <tr>
 
@@ -26,7 +29,7 @@
                         </td>
                         <td><input name="quantity" type="number" /></td>
                         <td>
-                            <button type="submit" class="btn btn-primary">Thêm</button>
+                            <button type="submit" class="btn btn-success">Thêm</button>
                         </td>
                     </tr>
                     </form>

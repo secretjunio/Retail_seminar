@@ -1,12 +1,15 @@
 ﻿using API;
 using API.Entities;
 using API.Persistance.IRepository;
+using ClosedXML.Excel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Seminar_Retail_NhanHang.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -50,13 +53,15 @@ namespace Seminar_Retail_NhanHang.Controllers
         public IActionResult CreateDeliveryOrder(DeliveryOrderModel d)
         {
             if (ModelState.IsValid)
-            {
-                var deliveryOrder = new DeliveryOrder();
-                deliveryOrder.delivery_order_id = Guid.NewGuid().ToString();
-                deliveryOrder.delivery_order_date = DateTime.Parse(d.delivery_order_date.ToString().Split(" ")[0]).ToString("dd-MM-yyyy");
-                deliveryOrder.order_status = d.order_status;
-                //deliveryOrder.expected_quantity = d.expected_quantity;       
-                _deliveryOrderRepository.createDeliveryOrder(deliveryOrder);
+            { 
+                    var deliveryOrder = new DeliveryOrder();
+                    deliveryOrder.delivery_order_id = Guid.NewGuid().ToString();
+                    deliveryOrder.delivery_order_date = DateTime.Parse(d.delivery_order_date.ToString().Split(" ")[0]).ToString("dd-MM-yyyy");
+                    deliveryOrder.order_status = d.order_status;
+                    //deliveryOrder.expected_quantity = d.expected_quantity;       
+                    _deliveryOrderRepository.createDeliveryOrder(deliveryOrder);
+                
+               
                 return RedirectToAction("Index");
             }
             return View();
@@ -192,7 +197,7 @@ namespace Seminar_Retail_NhanHang.Controllers
 
             return RedirectToAction("Index");
         }
-       
+
         public void DeleteDetail(string orderId, string lineId)
         {
             var orderTemp = _deliveryOrderRepository.FindById(orderId);
@@ -222,7 +227,7 @@ namespace Seminar_Retail_NhanHang.Controllers
             _deliveryOrderDetailRepository.editDeliveryOrderDetail(deliveryOrder);
             Response.Redirect("/Home/Index");
         }
-       
+
         //hàm này sẽ là hàm kiểm tra sản phẩm cung cấp có đủ hay không, tạo nút xuất excel trong này luôn
         //bảng productInstance là bảng sản phẩm được cung cấp, bảng deliveryOrderDetail là bảng cho biết sản phẩm mình cần cung cấp
         //lấy 2 bảng này để so sánh
@@ -231,11 +236,113 @@ namespace Seminar_Retail_NhanHang.Controllers
             ModelView mv = new ModelView
             {
                 DeliveryOrder = _deliveryOrderRepository.FindById(orderId),
-                DeliveryOrderDetails = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x=>x.delivery_order_id==orderId).ToList(),
+                DeliveryOrderDetails = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == orderId).ToList(),
                 ProductInstances = _productInstanceRepository.ProductInstances(),
                 ProductLines = _productLineRepository.ProductLines(),
             };
             return View(mv);
+        }
+
+
+        [HttpPost]
+        public IActionResult Export(string id)
+        {        
+            DataTable dt = new DataTable("Grid");
+            dt.Columns.AddRange(new DataColumn[5] { new DataColumn("Tên sản phẩm"),
+                                        new DataColumn("Đơn giá"),
+                                        new DataColumn("Số lượng mong muốn"),
+                                        new DataColumn("Số lượng nhận được"),
+                                        new DataColumn("Kết quả"),
+            });
+
+            var deliveryOrderDetails = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == id).ToList();
+
+
+            foreach (var i in deliveryOrderDetails)
+            {
+                var productLines = _productLineRepository.ProductLines().Where(x => x.product_line_id == i.product_line_id).FirstOrDefault();
+                var num = i.quantity - productLines.stock;
+                if (num > 0)
+                {
+                    dt.Rows.Add(productLines.name, productLines.price, i.quantity, productLines.stock, "Hàng nhập thiếu " + num);
+                }
+                else if (num == 0)
+                {
+                    dt.Rows.Add(productLines.name, productLines.price, i.quantity, productLines.stock, "Đã nhập đủ số lượng ");
+                }
+                else
+                {
+                    dt.Rows.Add(productLines.name, productLines.price, i.quantity, productLines.stock, "Đã nhập dư số lượng " + (-num));
+                }
+
+            }
+
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dt);
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Baocaoseminar_nhanhang.xlsx");
+                }
+            }
+        }
+
+        [HttpPost]
+        public IActionResult ExportExcel(string id)
+        {
+            float tong = 0;
+            float tongchi = 0;
+            float numpro1 = 0;
+            float numpro2 = 0;
+            DataTable dt = new DataTable("Grid");
+            dt.Columns.AddRange(new DataColumn[5] { new DataColumn("Tổng chi dự kiến"),
+                                        new DataColumn("Tổng chi thực tế"),
+                                        new DataColumn("Tổng số sản phẩm cần nhập"),
+                                        new DataColumn("Tổng số sản phẩm nhận được"),
+                                        new DataColumn("Kết luận"),
+            });
+
+            var deliveryOrderDetails = _deliveryOrderDetailRepository.DeliveryOrderDetails().Where(x => x.delivery_order_id == id).ToList();
+
+            foreach (var i in deliveryOrderDetails)
+            {
+                var productLines = _productLineRepository.ProductLines().Where(x => x.product_line_id == i.product_line_id).FirstOrDefault();
+                tong = (float)tong + (float)productLines.price * (float)i.quantity;
+                tongchi = (float)tongchi + (float)productLines.stock * (float)productLines.price;
+                numpro1 = numpro1 + i.quantity;
+                numpro2 = numpro2 + productLines.stock;               
+            }
+            if (tongchi == 0 && tong == 0)
+            {
+                dt.Rows.Add(tong, tongchi, numpro1, numpro2, "");
+            }
+            else
+            {
+                if (tongchi > tong)
+                {
+                    dt.Rows.Add(tong, tongchi, numpro1, numpro2, "Tổng chi phí vượt quá mong đợi");
+                }
+                else if (tongchi == tong)
+                {
+                    dt.Rows.Add(tong, tongchi, numpro1, numpro2, "Tổng chi phí như dự đoán");
+                }
+                else
+                {
+                    dt.Rows.Add(tong, tongchi, numpro1, numpro2, "Tổng chi phí thấp hơn dự đoán");
+                }
+
+            }
+
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dt);
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Baocaoseminar_nhanhang2.xlsx");
+                }
+            }
         }
     }
 }

@@ -1,125 +1,149 @@
 ﻿@model ModelView
 
-<div class="align-content-lg-between">
-    <h1>Báo cáo Hàng nhận</h1>
-</div>
-<div>
-    <a style="float:left;" class="align-content-start btn btn-info" asp-action="Index" asp-controller="Home">Quay lại</a><a style="float:right;" class="btn btn-info align-content-end" asp-action="ExportExcel" asp-controller="Home">Xuất Excel</a>
-</div>
-<table class="table table-bordered table-hover table-striped text-center" style="display:block;overflow:auto">
-    <thead class="thead-light" style="display:table;width:100%;table-layout:fixed; font-weight: bold;">
-        <tr>
+@{
+                    float tong = 0;
+                    float tongchi = 0;
+                    float numpro1 = 0;
+                    float numpro2 = 0;
+                    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+<div class="container-fluid">
+    <h1 class="text-center">Báo cáo hàng nhận</h1>
+    <a style="float:left;" class="btn btn-primary" asp-action="Index" asp-controller="Home"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+</svg> Quay lại</a>
 
-            <th scope="col">Tên sản phẩm</th>
-            <th scope="col">Đơn giá</th>
-            <th scope="col">số lượng mong muốn</th>
-            <th scope="col">Số lượng nhận được</th>
-            <th scope="col">Kết quả</th>
-        </tr>
-    </thead>
-    <tbody style="display:block;overflow:auto;max-height:500px;width:auto">
+    <form style="float:right" asp-route-id="@Model.DeliveryOrder.delivery_order_id" asp-controller="Home" asp-action="Export">
+    <input class="btn btn-success" type="submit" value="Xuất Excel"/>
+    </form>        
 
-        @{
-            try
-            {
-                float tong = 0;
-                float tongchi = 0;
-                float numpro1 = 0;
-                float numpro2 = 0;
-                foreach (var i in Model.DeliveryOrderDetails)
+    <br />
+    <br />
+    <table class="table table-bordered table-hover text-center" style="display:block;overflow:auto">
+        <thead class="thead-light" style="display:table;width:100%;table-layout:fixed; font-weight: bold;">
+            <tr>
+
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Đơn giá</th>
+                <th scope="col">Số lượng mong muốn</th>
+                <th scope="col">Số lượng nhận được</th>
+                <th scope="col">Kết quả</th>
+            </tr>
+        </thead>
+        <tbody style="display:block;overflow:auto;max-height:500px;width:auto">
+
+            @{
+                try
                 {
-                    var prod = Model.ProductLines.Where(x => x.product_line_id == i.product_line_id).FirstOrDefault();
+                    foreach (var i in Model.DeliveryOrderDetails)
+                    {
+                        var prod = Model.ProductLines.Where(x => x.product_line_id == i.product_line_id).FirstOrDefault();
 
-                    <tr style="display:table;width:100%;table-layout:fixed;height:100px">
-                        <td>@prod.name</td>
-                        <td>
-                            @prod.price
-                            @{
-                                tong = (float)tong + (float)prod.price * (float)i.quantity;
-                                tongchi = (float)tongchi + (float)prod.stock * (float)prod.price;
-                                numpro1 = numpro1 + i.quantity;
-                                numpro2 = numpro2 + prod.stock;
-                            }
-                        </td>
-                        <td>@i.quantity</td>
-                        <td>
-                            @prod.stock
-                        </td>
-                        <td>
-                            @{
-                                var num = i.quantity - prod.stock;
-                                if (num > 0)
-                                {
-                                    <p>hàng nhập thiếu @num</p>
-                                }
-                                else if (num == 0)
-                                {
-                                    <p>đã nhập đủ số luọng</p>
-                                }
-                                else
-                                {
-                                    <p>nhập dư số lượng @(-num)</p>
-                                }
-
-
-                            }
-
-                        </td>
-                    </tr>
-                }
-                <tr style="display:table;width:100%;table-layout:fixed;height:100px">
-
-                    <td>
-                        Tổng chi dự kiến
-                    </td>
-
-                     <td>
-                        @tong
-                    </td>
-
-                    <td colspan="2">
-                     tổng sản phẩm cần nhập<br>
-                     @numpro1
-                    </td>
-                    <td></td>
-                </tr>
-                <tr style="display:table;width:100%;table-layout:fixed;height:100px">
-                    <td >
-                        Tổng chi thực tế
-                    </td>
-
-                    <td>
-                        @tongchi
-                    </td>
-
-                    <td colspan="2">
-                    tổng sản phẩm nhận được<br>
-                    @numpro2
-                    </td>
-
-                    <td rowspan="2">
+                        <tr style="display:table;width:100%;table-layout:fixed;height:100px">
+                            <td>@prod.name</td>
+                            <td>
+                                @String.Format("{0:0,0 vnđ}", prod.price) 
                                 @{
-                                    if (tongchi > tong)
-                                    {
-                                <p>tổng chi phí vượt quá mong đợi</p>
-                                    }
-                                    else if (tongchi == tong)
-                                    {
-                                <p>tổng chi phí như dự đoán</p>
-                                    }
-
-                                    {
-                                <p>Tổng chi phí thấp hơn dự đoán</p>
-                                    }
+                                    tong = (float)tong + (float)prod.price * (float)i.quantity;
+                                    tongchi = (float)tongchi + (float)prod.stock * (float)prod.price;
+                                    numpro1 = numpro1 + i.quantity;
+                                    numpro2 = numpro2 + prod.stock;
                                 }
-                    </td>
-                </tr>
-            }
-            catch (Exception e)
-            {
+                            </td>
+                            <td>@i.quantity</td>
+                            <td>
+                                @prod.stock
+                            </td>
+                            <td>
+                                @{
+                                    var num = i.quantity - prod.stock;
+                                    if (num > 0)
+                                    {
+                                        <b class="text-warning">Hàng nhập thiếu: @num</b>
+                                    }
+                                    else if (num == 0)
+                                    {
+                                        <b class="text-primary">Đã nhập đủ số lượng</b>
+                                    }
+                                    else
+                                    {
+                                        <b class="text-warning">Nhập dư số lượng: @(-num)</b>
+                                    }
 
-            }
-        }
 
-    </tbody>
-</table>
+                                }
+
+                            </td>
+                        </tr>
+                    }
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+
+        </tbody>
+    </table>
+    <form style="float:right" asp-route-id="@Model.DeliveryOrder.delivery_order_id" asp-controller="Home" asp-action="ExportExcel">
+    <input class="btn btn-success" type="submit" value="Xuất Excel"/>
+    </form> 
+    <br />
+    <br />
+    <table class="table table-bordered text-center" style="margin-bottom:100px">
+        <thead class="thead-light">
+            <th class="font-weight-bold">
+                Tổng chi dự kiến
+            </th>
+            <th class="font-weight-bold">
+                Tổng chi thực tế
+            </th>
+            <th>Kết luận</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @String.Format("{0:0,0 vnđ}", tong) 
+                </td>
+
+                <td>
+                    @String.Format("{0:0,0 vnđ}", tongchi)
+                </td>
+
+                <td rowspan="2" class="text-center p-5">
+                    @{
+                        if(tongchi == 0 && tong == 0)
+                        {
+                            <p></p>
+                        }
+                        else
+                        {
+                            if (tongchi > tong)
+                            {
+                                <p class="text-warning" style="font-weight:bold">Tổng chi phí vượt quá mong đợi</p>
+                            }
+                            else if (tongchi == tong)
+                            {
+                                <p class="text-success" style="font-weight:bold">Tổng chi phí như dự đoán</p>
+                            }
+                            {
+                                <p class="text-danger" style="font-weight:bold">Tổng chi phí thấp hơn dự đoán</p>
+                            }                            
+                        }
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Tổng sản phẩm cần nhập<br>
+                    <b>@numpro1</b>
+                </td>
+
+                <td>
+                Tổng sản phẩm nhận được<br>
+                    <b>@numpro2</b>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

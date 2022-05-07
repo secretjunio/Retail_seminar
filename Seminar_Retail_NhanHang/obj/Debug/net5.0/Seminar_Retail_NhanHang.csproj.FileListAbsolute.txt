@@ -409,3 +409,11 @@ D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Reta
 D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.csproj.CopyComplete
 D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Seminar_Retail_NhanHang.genruntimeconfig.cache
 D:\Document\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\ref\Seminar_Retail_NhanHang.dll
+D:\CodeC#\.NET CORE MVC\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Home\AddProductToDetail.cshtml.g.cs
+D:\CodeC#\.NET CORE MVC\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Home\CheckProduct.cshtml.g.cs
+D:\CodeC#\.NET CORE MVC\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Home\DetailOrder.cshtml.g.cs
+D:\CodeC#\.NET CORE MVC\Retail_seminar\Seminar_Retail_NhanHang\obj\Debug\net5.0\Razor\Views\Home\MappingTagAndProduct.cshtml.g.cs
+D:\CodeC#\.NET CORE MVC\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\ClosedXML.dll
+D:\CodeC#\.NET CORE MVC\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
+D:\CodeC#\.NET CORE MVC\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\ExcelNumberFormat.dll
+D:\CodeC#\.NET CORE MVC\Retail_seminar\Seminar_Retail_NhanHang\bin\Debug\net5.0\System.IO.Packaging.dll
